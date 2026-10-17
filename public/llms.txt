@@ -1,0 +1,28 @@
+# FileCompress
+
+> FileCompress provides free browser-based tools for compressing images, documents, videos, and audio files with 100% on-device privacy.
+
+FileCompress is an online utility platform designed to optimize file sizes without compromising visual or auditory quality. All file processing runs locally within the user's web browser sandbox using modern web standards (HTML5 Canvas, Web Workers, Web Audio API, and client-side transcoders). Uploaded files never touch external servers or cloud storage. Compression statistics reflect actual byte reduction; if a file is already optimized and cannot be reduced further, FileCompress alerts the user honestly without overwriting the original.
+
+## Main pages
+
+- [FileCompress Homepage](https://filecompress.app/): Universal multi-format file compression workspace with batch processing, live preview, and ZIP export.
+- [About FileCompress](https://filecompress.app/about): Overview of our engineering philosophy, privacy-first architecture, and browser-based technology stack.
+- [Contact Us](https://filecompress.app/contact): Support inquiries, technical feedback, and partner communications.
+
+## Compression tools
+
+- [Image Compressor](https://filecompress.app/image-compressor): Compress JPEG, PNG, and WebP images with custom quality sliders, dimension resizing, and side-by-side visual comparison preview.
+- [PDF Compressor](https://filecompress.app/pdf-compressor): Optimize and shrink PDF documents for email attachments and web publishing with stream compression and metadata stripping.
+- [Video Compressor](https://filecompress.app/video-compressor): Compress MP4, WebM, and MOV video clips using hardware-accelerated MediaRecorder transcoding, custom bitrate targets, and resolution downscaling.
+- [Audio Compressor](https://filecompress.app/audio-compressor): Compress MP3, WAV, and M4A audio tracks with configurable bitrates and mono channel downmixing.
+- [ZIP Compressor](https://filecompress.app/zip-compressor): Package and compress multiple files into a standard ZIP archive with adjustable DEFLATE compression levels.
+
+## Guides and help
+
+- [How to Compress Files Online](https://filecompress.app/how-to-compress-files): Comprehensive educational guide covering lossy vs. lossless compression, DPI resolution, video bitrates, and file formatting best practices.
+
+## Policies
+
+- [Privacy Policy](https://filecompress.app/privacy-policy): Transparent explanation of our zero-server processing guarantee, client-side data handling, and analytics usage.
+- [Terms of Service](https://filecompress.app/terms): Terms governing the fair, free use of FileCompress web applications and tools.
