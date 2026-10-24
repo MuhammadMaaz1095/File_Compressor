@@ -9,46 +9,104 @@ import {
   ArrowRight,
   Check,
   Lock,
+  CheckCircle2,
+  HardDrive,
+  Maximize2,
+  Layers,
+  Scale,
+  Info,
+  Globe,
+  Sliders,
+  Film,
+  Music,
+  FolderArchive,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { ToolWorkspace } from '@/components/compression/ToolWorkspace';
 import { AdSlot } from '@/components/ads/AdSlot';
 import { JsonLd, getSoftwareAppSchema, getFaqSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'PDF Compressor — Compress & Optimize PDF Files Online for Free',
+  title: 'Free Online PDF Compressor – Reduce PDF Size | FileCompress',
   description:
-    'Free online PDF compressor. Reduce PDF file sizes for email attachments and web publishing without losing text crispness. 100% private, on-device processing.',
+    'Compress PDF files online with FileCompress. Reduce PDF file size for email, sharing and uploads, with tips for balancing file size and document quality.',
   alternates: {
     canonical: 'https://filecompress.app/pdf-compressor',
   },
   openGraph: {
-    title: 'PDF Compressor — Reduce PDF File Size Online',
+    title: 'Free Online PDF Compressor – Reduce PDF Size | FileCompress',
     description:
-      'Compress PDF documents quickly and securely directly in your browser. Zero server uploads guarantee 100% document privacy.',
+      'Compress PDF files online with FileCompress. Reduce PDF file size for email, sharing and uploads, with tips for balancing file size and document quality.',
     url: 'https://filecompress.app/pdf-compressor',
+    type: 'website',
   },
 };
 
 const PDF_FAQS = [
   {
-    question: 'How does FileCompress compress PDF documents without uploading them?',
+    question: 'What is the best free online PDF compressor?',
     answer:
-      'FileCompress executes WebAssembly and JavaScript PDF engine logic (pdf-lib) directly inside your web browser. It parses the document cross-reference table, packs loose objects into compressed Flate streams, and removes redundant metadata. Your document never leaves your machine.',
+      'The best PDF compressor is one that supports your file, produces a useful reduction, preserves the readability you need, and explains its processing and privacy practices clearly. FileCompress executes all optimization routines directly on your device via browser-based WebAssembly and JavaScript, guaranteeing zero server uploads and 100% document confidentiality.',
   },
   {
-    question: 'Will text or vector graphics become blurry after compression?',
+    question: 'How do I compress a PDF online for free?',
     answer:
-      'No. Text content, font subsets, and vector drawings are compressed losslessly using Flate/Deflate algorithms. They remain perfectly sharp and readable at any zoom level or in print.',
+      'Select your PDF in the online compressor workspace above, click Compress, and download the resulting file when processing finishes. Then open and inspect the output to confirm that all text, diagrams, and pages remain crystal-clear.',
   },
   {
-    question: 'Is there a limit on how many PDF pages or files I can compress?',
+    question: 'How can I reduce PDF file size?',
     answer:
-      'You can compress multiple PDFs at once. Each individual document can be up to 50MB, which accommodates the vast majority of standard office and educational PDF files.',
+      'PDF file size can be reduced by consolidating loose objects into compact Flate-compressed streams, stripping redundant software creator and printer metadata, and downsampling oversized embedded raster images. The exact reduction depends on whether your document consists primarily of text, vectors, or high-resolution photos.',
   },
   {
-    question: 'Can I compress password-protected PDF files?',
+    question: 'Can I compress a PDF without losing quality?',
     answer:
-      'Files that require an opening password must have password security removed prior to processing, as the compression engine cannot modify encrypted streams without authorization.',
+      'Yes. Lossless compression packs cross-reference tables and streams without discarding any underlying character codes or vector paths, keeping text razor-sharp at any zoom level. Where embedded photos are present, balanced compression preserves high perceptual fidelity while discarding redundant color frequency data.',
+  },
+  {
+    question: 'Can I compress a PDF to 100KB?',
+    answer:
+      'It depends on the original file. A short, text-based document (such as a 1- or 2-page invoice or resume) can easily reach under 100KB. However, a multi-page scanned document with full-color photographic pages may require substantial image downsampling to reach 100KB.',
+  },
+  {
+    question: 'Can I compress a PDF to 500KB or under 1MB?',
+    answer:
+      'Many multi-page office reports, academic papers, and application forms easily fit under 500KB or 1MB when non-essential metadata and uncompressed object streams are eliminated. Inspect your file size after processing to verify that your document meets your specific upload ceiling.',
+  },
+  {
+    question: 'Why did my PDF barely shrink?',
+    answer:
+      'If a PDF was generated by modern publishing software with linear stream compression enabled and minimal embedded metadata, there may be little redundant data left to compress. FileCompress reports truthful before-and-after measurements rather than fabricating savings.',
+  },
+  {
+    question: 'Does compressing a PDF remove pages?',
+    answer:
+      'No. Compression strictly optimizes internal file encoding and data streams. It never removes pages, alters margins, or deletes content. If you need to discard specific pages, use a dedicated PDF page editor prior to compression.',
+  },
+  {
+    question: 'Can I compress a scanned PDF?',
+    answer:
+      'Yes. A compatible PDF compressor reduces the size of scanned documents by optimizing internal image streams and cross-reference dictionaries. Always inspect fine text, handwritten signatures, and official stamps afterward to confirm legibility.',
+  },
+  {
+    question: 'Does PDF compression make a scanned file searchable?',
+    answer:
+      'Not automatically. Making scanned pages searchable requires Optical Character Recognition (OCR), which interprets pixel shapes into selectable font glyphs. PDF compression optimizes file storage efficiency but does not perform OCR.',
+  },
+  {
+    question: 'Is an online PDF compressor safe for confidential files?',
+    answer:
+      'With FileCompress, yes. All compression operations run locally inside your web browser sandbox using client-side JavaScript. Your confidential contracts, tax forms, financial statements, and personal records are never uploaded to any remote server or third-party cloud.',
+  },
+  {
+    question: 'Can I compress a PDF for email?',
+    answer:
+      'Yes. Most email services impose a 20MB to 25MB total attachment limit. Compressing large PDF reports and presentations brings them well under standard email ceilings so messages send instantly without bouncing.',
+  },
+  {
+    question: 'Will every PDF become smaller after compression?',
+    answer:
+      'No. Already-optimized documents that utilize modern Flate compression with no extra metadata may show little or no reduction. FileCompress provides honest metrics and alerts you if re-saving produces no measurable byte savings.',
   },
 ];
 
@@ -59,116 +117,777 @@ export default function PdfCompressorPage() {
       <JsonLd data={getFaqSchema(PDF_FAQS)} />
 
       <main className="flex-1 pb-16">
-        {/* Header Hero */}
-        <section className="relative pt-10 pb-12 sm:pt-14 sm:pb-14">
+        {/* ============================================================ */}
+        {/* HERO SECTION WITH BREADCRUMB & TOOL WORKSPACE */}
+        {/* ============================================================ */}
+        <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            {/* Breadcrumb */}
-            <nav className="flex justify-center items-center gap-2 text-xs text-slate-500 mb-6" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
+            {/* Breadcrumb Navigation */}
+            <nav className="flex justify-center items-center gap-2 text-xs text-slate-500 mb-5" aria-label="Breadcrumb">
+              <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
               <span>/</span>
               <span className="text-slate-800 font-semibold">PDF Compressor</span>
             </nav>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold mb-4">
-              <FileText className="w-3.5 h-3.5" />
-              <span>PDF Document Optimizer</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-rose-700 text-xs font-semibold mb-4 shadow-2xs">
+              <FileText className="w-3.5 h-3.5 text-rose-600" />
+              <span>PDF Document Optimizer &bull; 100% On-Device Privacy</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight max-w-3xl mx-auto">
-              Free Online <span className="text-rose-600">PDF Compressor</span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto">
+              Free Online <span className="text-rose-600">PDF Compressor</span> – Reduce PDF File Size
             </h1>
 
-            <p className="mt-3 sm:mt-4 text-base text-slate-600 max-w-xl mx-auto">
-              Reduce PDF file sizes for email sharing and web uploads while preserving crystal-clear typography and document structure.
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              PDF files are convenient for sharing documents because they preserve text, images, fonts, and page layouts across different devices. 
+              Reduce PDF file size for email, sharing, and online uploads while preserving crystal-clear typography and document structure.
             </p>
 
+            {/* Feature Badges */}
+            <div className="mt-5 flex flex-wrap justify-center items-center gap-3 sm:gap-6 text-xs text-slate-600">
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <span>Zero server uploads (100% private)</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Zap className="w-4 h-4 text-blue-600" />
+                <span>Object stream packing</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Lock className="w-4 h-4 text-rose-600" />
+                <span>Metadata stripping</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-indigo-600" />
+                <span>Preserves fonts &amp; vector sharpness</span>
+              </span>
+            </div>
+
+            {/* Interactive Tool Workspace */}
             <div className="mt-8 text-left">
               <ToolWorkspace category="pdf" />
             </div>
           </div>
         </section>
 
-        {/* Ad Placeholder */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Ad Placement */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
           <AdSlot format="horizontal" />
         </div>
 
-        {/* Explanation Section */}
-        <section className="py-12 bg-white/70 border-y border-slate-200/70">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 text-center mb-8">
-              Why PDFs Get Bloated &amp; How FileCompress Fixes It
-            </h2>
+        {/* ============================================================ */}
+        {/* COMPREHENSIVE 3,000+ WORD SEO ARTICLE CONTENT */}
+        {/* ============================================================ */}
+        <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 text-slate-700 leading-relaxed">
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="glass-card-3d p-6">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 shadow-2xs">
-                  <Zap className="w-5 h-5" />
+          {/* Section 1: What Is a Free Online PDF Compressor */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                What Is a Free Online PDF Compressor?
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Understanding how document stream optimization, metadata pruning, and lossless encoding reduce PDF file weight.
+              </p>
+            </div>
+
+            <p>
+              PDF (Portable Document Format) files are the global benchmark for distributing official documents, business proposals, academic papers, 
+              contracts, and forms because they ensure that typography, vector line art, page margins, and visual elements look identical across every device, 
+              operating system, and printer. However, a PDF can quickly become difficult to upload, email, or archive when its file size becomes bloated. 
+              High-resolution embedded photographs, uncompressed scanned pages, embedded font subsets, printer calibration profiles, and repeated internal 
+              data dictionaries all contribute to oversized documents.
+            </p>
+
+            <p>
+              A <strong>Free Online PDF Compressor</strong> is a specialized tool designed to reduce the storage space and bandwidth required by a PDF document 
+              through a clean, browser-accessible interface. Depending on its technical architecture, a modern PDF compression engine optimizes internal 
+              document structures, consolidates loose objects into compressed Flate streams, removes non-essential creator metadata, and compacts cross-reference tables.
+            </p>
+
+            <p>
+              When you compress a PDF with FileCompress, the fundamental objective is to preserve the document&apos;s essential readability, layout fidelity, 
+              and vector sharpness while making the resulting file significantly lighter. This is crucial when an employer portal limits resume uploads to 2 MB, 
+              a university application form enforces a strict 500 KB limit, an email provider caps total message attachments at 20 MB, or a mobile recipient 
+              is accessing files over a slow cellular data connection.
+            </p>
+
+            <p>
+              Every month, millions of users search for practical solutions using terms such as <strong>PDF compressor</strong>, <strong>free PDF compressor</strong>, 
+              <strong>online PDF compressor</strong>, <strong>compress PDF online</strong>, <strong>reduce PDF size</strong>, and <strong>shrink PDF</strong>. 
+              They share a common practical goal: getting a heavy PDF file down to a manageable size without installing cumbersome desktop suites or compromising 
+              the integrity of crucial paperwork.
+            </p>
+
+            {/* Compressor vs Editor Distinction */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 not-prose my-6">
+              <div className="glass-card-3d p-5 rounded-2xl border-slate-200/90">
+                <div className="flex items-center gap-2 mb-2 text-rose-700 font-bold text-sm">
+                  <FileText className="w-4 h-4" />
+                  <span>PDF Compressor vs. PDF Editor</span>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2 tracking-tight">
-                  Object Stream Packing
-                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Older PDF versions store each font, dictionary, and text block as separate uncompressed objects. We consolidate these objects into compact, compressed streams.
+                  A <strong>PDF compressor</strong> focuses strictly on data efficiency—optimizing internal cross-reference streams and removing invisible metadata bloat 
+                  without altering visible text, margins, or page order. In contrast, a <strong>PDF editor</strong> alters visible content, modifies paragraphs, adds form fields, 
+                  or rearranges pages. FileCompress specializes in lightweight, on-device document compression.
                 </p>
               </div>
 
-              <div className="glass-card-3d p-6">
-                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4 shadow-2xs">
-                  <Lock className="w-5 h-5" />
+              <div className="glass-card-3d p-5 rounded-2xl border-slate-200/90">
+                <div className="flex items-center gap-2 mb-2 text-blue-700 font-bold text-sm">
+                  <Scale className="w-4 h-4" />
+                  <span>When to Use a PDF Size Reducer</span>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2 tracking-tight">
-                  Metadata Stripping
-                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Hidden printer calibration data, software creator tags, and XML metadata bloat PDFs. Removing them saves space while protecting sensitive document metadata.
-                </p>
-              </div>
-
-              <div className="glass-card-3d p-6">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 shadow-2xs">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2 tracking-tight">
-                  100% Confidential
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Contracts, financial statements, and medical forms should never be sent to third-party cloud servers. Our browser sandbox keeps your data strictly private.
+                  Use a PDF size reducer when your document exceeds upload ceilings, email attachments bounce, scanned receipts occupy too much disk space, 
+                  or you need to share corporate reports with clients swiftly. If a document is already a tiny 60 KB file with pure text, further compression is unnecessary.
                 </p>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* FAQs */}
-        <section className="py-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-slate-900 text-center mb-8 tracking-tight">
-            PDF Compression FAQs
-          </h2>
-          <div className="space-y-4">
-            {PDF_FAQS.map((faq, idx) => (
-              <div key={idx} className="glass-card-3d p-6 space-y-2">
-                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 mb-2 tracking-tight">
-                  <HelpCircle className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>{faq.question}</span>
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed pl-6">
-                  {faq.answer}
+            <p>
+              The best compression result always depends on the specific contents of your PDF. A document created with vector fonts and text may yield modest savings 
+              because text is already compact, whereas a PDF filled with 300 DPI scanner images or camera photos can often be reduced by 50% to 80%. 
+              The goal is to find a useful balance between file size, readability, and document quality rather than chasing an arbitrary byte number at the cost of legibility.
+            </p>
+          </section>
+
+          {/* Section 2: How to Compress a PDF File Online */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                How to Compress a PDF File Online
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                A simple, predictable 5-step workflow designed to deliver rapid, reliable document optimization.
+              </p>
+            </div>
+
+            <p>
+              Compressing a PDF should be simple, transparent, and completely free from frustrating technical barriers. 
+              Follow these five straightforward steps to optimize your documents using FileCompress:
+            </p>
+
+            <div className="space-y-4 not-prose">
+              {/* Step 1 */}
+              <div className="glass-card-3d p-6 rounded-2xl flex flex-col md:flex-row gap-5 items-start">
+                <div className="w-10 h-10 rounded-full bg-rose-600 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-md shadow-rose-500/30">
+                  1
+                </div>
+                <div className="space-y-2 flex-1">
+                  <h3 className="text-base font-bold text-slate-900">Step 1: Select Your PDF Document</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Choose one or more PDF files from your computer, tablet, or smartphone by dragging them into the upload workspace or clicking <strong>Browse Files</strong>. 
+                    Before uploading, confirm that you have selected the finalized version of your document and that it contains all required pages. 
+                    If your document contains sensitive financial or personal information, rest assured that FileCompress runs 100% locally in your browser sandbox without server transmission.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="glass-card-3d p-6 rounded-2xl flex flex-col md:flex-row gap-5 items-start">
+                <div className="w-10 h-10 rounded-full bg-rose-600 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-md shadow-rose-500/30">
+                  2
+                </div>
+                <div className="space-y-2 flex-1">
+                  <h3 className="text-base font-bold text-slate-900">Step 2: Choose Presets or Custom Quality Settings</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Select your preferred compression profile—<strong>Balanced</strong> (standard optimization for email and web sharing), 
+                    <strong>Smaller File</strong> (aggressive stream consolidation and maximum metadata pruning for strict upload limits), or 
+                    <strong>High Quality</strong> (gentle optimization prioritizing visual fidelity). You can also open the <strong>Custom Options</strong> panel 
+                    to toggle metadata stripping and object stream packing according to your exact requirements.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="glass-card-3d p-6 rounded-2xl flex flex-col md:flex-row gap-5 items-start">
+                <div className="w-10 h-10 rounded-full bg-rose-600 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-md shadow-rose-500/30">
+                  3
+                </div>
+                <div className="space-y-2 flex-1">
+                  <h3 className="text-base font-bold text-slate-900">Step 3: Process the Document Locally</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Click <strong>Compress</strong>. Processing begins instantly on your local CPU using client-side WebAssembly logic. 
+                    Because the engine operates entirely within your browser, processing speed is remarkably fast—typically completing in a few hundred milliseconds 
+                    for standard documents. You never have to wait in cloud server queues or worry about network upload timeouts.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div className="glass-card-3d p-6 rounded-2xl flex flex-col md:flex-row gap-5 items-start">
+                <div className="w-10 h-10 rounded-full bg-rose-600 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-md shadow-rose-500/30">
+                  4
+                </div>
+                <div className="space-y-2 flex-1">
+                  <h3 className="text-base font-bold text-slate-900">Step 4: Download the Compressed PDF</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    When processing completes, review the exact byte savings and reduction percentage reported by the engine. 
+                    Click <strong>Download</strong> next to your file to save the optimized PDF directly to your device. 
+                    If you processed a batch of multiple documents, click <strong>Download All (.ZIP)</strong> to save every optimized file in a neat, organized bundle.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 5 */}
+              <div className="glass-card-3d p-6 rounded-2xl flex flex-col md:flex-row gap-5 items-start">
+                <div className="w-10 h-10 rounded-full bg-rose-600 text-white font-bold text-sm flex items-center justify-center shrink-0 shadow-md shadow-rose-500/30">
+                  5
+                </div>
+                <div className="space-y-2 flex-1">
+                  <h3 className="text-base font-bold text-slate-900">Step 5: Verify Document Readability &amp; Structure</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Open your downloaded PDF in your preferred viewer (Adobe Acrobat, Preview, Chrome, or Edge) and inspect important pages. 
+                    Verify that small text, table grids, signatures, stamps, and embedded photographs remain clear and legible before submitting 
+                    or emailing your document.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 3: Reduce PDF File Size Without Unnecessary Quality Loss */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Reduce PDF File Size Without Unnecessary Quality Loss
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Preserving crucial fine print, vector line work, and mathematical font outlines while eliminating wasted bytes.
+              </p>
+            </div>
+
+            <p>
+              One of the primary concerns when using a <strong>PDF compressor</strong> is whether compression will degrade the visual clarity of the document. 
+              The phrase <strong>compress PDF without losing quality</strong> represents the ideal outcome: producing a document that is noticeably smaller in byte weight 
+              while remaining completely crisp, professional, and visually identical to the original.
+            </p>
+
+            <h3 className="text-lg font-bold text-slate-900">1. Preserving Text Readability &amp; Typography</h3>
+            <p>
+              In business, legal, academic, and government documents, text legibility is non-negotiable. Contracts, financial statements, medical records, 
+              and research papers contain footnotes, disclaimers, reference numbers, and tabular data rendered in 6pt to 9pt type. 
+              FileCompress compresses internal PDF streams losslessly using Flate/Deflate algorithms. Character codes and font outlines are never downsampled or rasterized, 
+              ensuring that text remains razor-sharp at any zoom level and prints with crisp clarity.
+            </p>
+
+            <h3 className="text-lg font-bold text-slate-900">2. Checking Images, Charts, and Graphics</h3>
+            <p>
+              When a PDF contains embedded raster graphics—such as scanned driver&apos;s licenses, company logos, product photographs, or architectural diagrams—those 
+              images account for the vast majority of total document weight. Ensuring that compression does not introduce pixelation or blur around scanned signatures, 
+              dates, and stamps is vital before submitting official paperwork.
+            </p>
+
+            <h3 className="text-lg font-bold text-slate-900">3. Understanding the Limits of Quality-Preserving Compression</h3>
+            <p>
+              No compression algorithm can guarantee massive byte savings on every file without some trade-off. If a PDF has already been created using modern, 
+              efficient stream filters with zero redundant metadata, re-compressing it may yield only modest savings. 
+              FileCompress embraces absolute honesty: we calculate actual file sizes and alert you if a file is already optimized, rather than showing fake numbers.
+            </p>
+          </section>
+
+          {/* Section 4: Compress Large PDF Files */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Compress Large PDF Files
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Diagnosing the root causes of multi-megabyte document bloat and applying practical fixes.
+              </p>
+            </div>
+
+            <p>
+              Encountering a 50 MB or 100 MB PDF can be frustrating when you need to send an urgent email or upload files to a portal with strict limits. 
+              Using a <strong>PDF compressor for large files</strong> helps reduce document weight, but understanding why PDFs become so large enables you 
+              to prevent bloat at the source.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 not-prose my-6">
+              <div className="glass-card-3d p-5 rounded-2xl">
+                <div className="flex items-center gap-2 mb-2 text-rose-600 font-bold text-xs uppercase tracking-wider">
+                  <ImageIcon className="w-3.5 h-3.5" />
+                  <span>1. High-Resolution Photos</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Inserting uncompressed 12 MP camera photos or raw 300 DPI scanner images into Word or InDesign before exporting inflates PDFs to massive sizes.
                 </p>
               </div>
-            ))}
-          </div>
 
-          <div className="mt-8 text-center">
-            <Link
-              href="/how-to-compress-files#pdf-compression"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-800"
-            >
-              <span>Read our Guide on Optimizing PDFs for Email Attachments</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-        </section>
+              <div className="glass-card-3d p-5 rounded-2xl">
+                <div className="flex items-center gap-2 mb-2 text-blue-600 font-bold text-xs uppercase tracking-wider">
+                  <Layers className="w-3.5 h-3.5" />
+                  <span>2. Full Page Scans</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Scanned documents that save every page as an uncompressed bitmap image rather than searchable text consume megabytes for just a few pages.
+                </p>
+              </div>
+
+              <div className="glass-card-3d p-5 rounded-2xl">
+                <div className="flex items-center gap-2 mb-2 text-indigo-600 font-bold text-xs uppercase tracking-wider">
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>3. Embedded Font Subsets</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Embedding entire universal font families (including thousands of unused foreign language glyphs) adds hundreds of kilobytes per font.
+                </p>
+              </div>
+
+              <div className="glass-card-3d p-5 rounded-2xl">
+                <div className="flex items-center gap-2 mb-2 text-amber-600 font-bold text-xs uppercase tracking-wider">
+                  <Lock className="w-3.5 h-3.5" />
+                  <span>4. Redundant Metadata</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Color profiles, thumbnail caches, editing histories, and printer calibration blocks bloat document headers without providing visible benefit.
+                </p>
+              </div>
+
+              <div className="glass-card-3d p-5 rounded-2xl">
+                <div className="flex items-center gap-2 mb-2 text-emerald-600 font-bold text-xs uppercase tracking-wider">
+                  <Zap className="w-3.5 h-3.5" />
+                  <span>5. Loose Object Dictionaries</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Older PDF 1.4 documents store every individual element as a separate uncompressed cross-reference entry, increasing file overhead.
+                </p>
+              </div>
+
+              <div className="glass-card-3d p-5 rounded-2xl">
+                <div className="flex items-center gap-2 mb-2 text-purple-600 font-bold text-xs uppercase tracking-wider">
+                  <Scale className="w-3.5 h-3.5" />
+                  <span>6. Repeated Resources</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Duplicating headers, footers, background graphics, and logos on every single page instead of referencing a shared XObject increases file size linearly.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 5: Target Sizes (100KB, 200KB, 500KB, 1MB) */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Can You Compress a PDF to 100KB, 200KB, 500KB, or 1MB?
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Navigating strict file-size limits on visa applications, government portals, and university admissions.
+              </p>
+            </div>
+
+            <p>
+              Many official websites, employment platforms, and immigration services enforce rigid file-size caps. 
+              Users regularly search for targeted instructions: <strong>compress PDF to 100KB</strong>, <strong>compress PDF to 200KB</strong>, 
+              <strong>compress PDF to 500KB</strong>, or <strong>compress PDF under 1MB</strong>. 
+              While these targets are often achievable, feasibility depends directly on document type, page count, and embedded image density:
+            </p>
+
+            <div className="space-y-4 not-prose my-6">
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                <h4 className="text-xs font-bold text-rose-700 uppercase tracking-wider mb-1">Target: Compress PDF to 100KB</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  <strong>Realistic For:</strong> 1- to 3-page text-centric documents, single-page resumes, invoices, and simple correspondence.<br />
+                  <strong>Challenging For:</strong> Multi-page scanned contracts or documents with photographs. Achieving 100KB on a 10-page document requires converting color scans to grayscale or reducing resolution to 100–150 DPI.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                <h4 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-1">Target: Compress PDF to 200KB</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  <strong>Realistic For:</strong> 3- to 8-page business letters, simple forms, receipts, and government application packets.<br />
+                  <strong>Challenging For:</strong> Portfolios containing high-resolution design mockups. Packing cross-reference object streams and stripping metadata often brings 500 KB documents cleanly under 200 KB.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                <h4 className="text-xs font-bold text-indigo-700 uppercase tracking-wider mb-1">Target: Compress PDF to 500KB</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  <strong>Realistic For:</strong> Most standard office paperwork, 10- to 20-page reports with charts, academic syllabi, and legal briefs.<br />
+                  <strong>Strategy:</strong> Standard Flate stream packing and metadata removal easily achieve this target for documents exported from Microsoft Word or Google Docs.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                <h4 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-1">Target: Compress PDF Under 1MB</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  <strong>Realistic For:</strong> The vast majority of business presentations, annual reports, illustrated brochures, and scanned multipage packets.<br />
+                  <strong>Feasibility:</strong> Very high. Consolidating object dictionaries typically cuts bloated 3 MB–8 MB presentation decks down below 1 MB.
+                </p>
+              </div>
+            </div>
+
+            <div className="overflow-x-auto not-prose my-6">
+              <table className="w-full text-xs text-left border-collapse bg-white rounded-xl shadow-2xs overflow-hidden border border-slate-200">
+                <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                  <tr>
+                    <th className="py-3 px-4">Document Type</th>
+                    <th className="py-3 px-4">Typical Page Count</th>
+                    <th className="py-3 px-4">Original File Size</th>
+                    <th className="py-3 px-4">Target Size Feasibility</th>
+                    <th className="py-3 px-4">Primary Optimization Strategy</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-600">
+                  <tr className="hover:bg-slate-50/50">
+                    <td className="py-3 px-4 font-bold text-slate-900">Resume / CV</td>
+                    <td className="py-3 px-4">1 &ndash; 2 pages</td>
+                    <td className="py-3 px-4">350 KB &ndash; 1.5 MB</td>
+                    <td className="py-3 px-4 text-emerald-700 font-semibold">&lt; 100 KB (Easy)</td>
+                    <td className="py-3 px-4">Object stream packing, strip creator tags</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/50">
+                    <td className="py-3 px-4 font-bold text-slate-900">Signed Contract</td>
+                    <td className="py-3 px-4">3 &ndash; 6 pages</td>
+                    <td className="py-3 px-4">2 MB &ndash; 6 MB</td>
+                    <td className="py-3 px-4 text-emerald-700 font-semibold">&lt; 500 KB (High)</td>
+                    <td className="py-3 px-4">Scan stream compression, xref compaction</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/50">
+                    <td className="py-3 px-4 font-bold text-slate-900">Office Report</td>
+                    <td className="py-3 px-4">10 &ndash; 25 pages</td>
+                    <td className="py-3 px-4">5 MB &ndash; 20 MB</td>
+                    <td className="py-3 px-4 text-emerald-700 font-semibold">&lt; 1 MB (High)</td>
+                    <td className="py-3 px-4">Flate stream filters, remove thumbnails</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/50">
+                    <td className="py-3 px-4 font-bold text-slate-900">Scanned Book / Archive</td>
+                    <td className="py-3 px-4">50+ pages</td>
+                    <td className="py-3 px-4">30 MB &ndash; 150 MB</td>
+                    <td className="py-3 px-4 text-amber-700 font-semibold">5 MB &ndash; 15 MB (Moderate)</td>
+                    <td className="py-3 px-4">Image stream downsampling, grayscale</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* Section 6: Lossless vs Lossy PDF Compression */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Lossless vs. Lossy PDF Compression
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                How mathematical stream encoding differs from raster image downsampling in PDF optimization.
+              </p>
+            </div>
+
+            <p>
+              Understanding the distinction between lossless and lossy compression helps you choose the right approach for your document:
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 not-prose my-6">
+              <div className="glass-card-3d p-6 rounded-2xl border-slate-200/90">
+                <div className="flex items-center gap-2 mb-3 text-rose-700 font-bold text-base">
+                  <ShieldCheck className="w-5 h-5" />
+                  <span>Lossless PDF Compression</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                  Lossless compression reorganizes and compresses internal PDF object streams without discarding any visual or textual data. 
+                  Font outlines, vector lines, and character positions remain 100% bit-exact upon decompression.
+                </p>
+                <ul className="text-xs text-slate-600 space-y-1">
+                  <li>&bull; Methods: Flate/Deflate streams, xref packing, metadata removal</li>
+                  <li>&bull; Best for: Legal contracts, invoices, resumes, official forms</li>
+                  <li>&bull; Impact: Zero visual degradation, crisp typography preserved</li>
+                </ul>
+              </div>
+
+              <div className="glass-card-3d p-6 rounded-2xl border-slate-200/90">
+                <div className="flex items-center gap-2 mb-3 text-amber-700 font-bold text-base">
+                  <Zap className="w-5 h-5" />
+                  <span>Lossy PDF Compression</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                  Lossy compression targets embedded raster images inside the PDF, reducing their pixel resolution (DPI downsampling) 
+                  or applying lossy JPEG quantization to save massive amounts of space.
+                </p>
+                <ul className="text-xs text-slate-600 space-y-1">
+                  <li>&bull; Methods: Downsampling 300 DPI images to 150 DPI, JPEG re-encoding</li>
+                  <li>&bull; Best for: Photo-heavy presentations, draft review documents</li>
+                  <li>&bull; Impact: Significant byte reduction; minor image softening</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 7: Scanned PDFs & OCR */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Compress Scanned PDFs and Image-Heavy Documents
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Specialized handling for paper scans, notarized records, receipts, and photographic pages.
+              </p>
+            </div>
+
+            <p>
+              Scanned PDFs present unique compression challenges because every page is essentially a full-bleed digital photograph rather than selectable text. 
+              A 10-page document scanned at 300 DPI in 24-bit color can easily generate an unmanageable 30 MB file. 
+              When compressing a scanned PDF, the key is balancing file-size reduction with the legibility of signatures, stamps, dates, and fine print.
+            </p>
+
+            <div className="p-4 rounded-xl bg-amber-50/80 border border-amber-200/90 text-xs text-amber-900 flex items-start gap-3 my-4">
+              <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+              <div>
+                <strong className="font-semibold">Does PDF Compression Make Scanned Files Searchable?</strong> No. 
+                PDF compression optimizes file storage efficiency, stream encoding, and metadata. Converting scanned page images into selectable, 
+                searchable text requires Optical Character Recognition (OCR), which is a separate technology. Compression alone will not convert 
+                raster page images into searchable text unless OCR is explicitly performed.
+              </div>
+            </div>
+          </section>
+
+          {/* Section 8: Compress PDFs for Email & Portals */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Compress PDFs for Email and Online Forms
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Overcoming attachment bounce errors and satisfying portal upload requirements.
+              </p>
+            </div>
+
+            <p>
+              Major email providers (Gmail, Outlook, Yahoo) enforce attachment limits between 20 MB and 25 MB per email. 
+              Because email transmission encodes binary attachments into Base64 (which adds an unavoidable ~33% data overhead), a 19 MB PDF can easily exceed a 25 MB limit and bounce. 
+              Compressing documents to under 10 MB ensures instant, frictionless delivery.
+            </p>
+
+            <p>
+              Similarly, online portals for university admissions, job applications, public tenders, and visa processing enforce strict per-document ceilings (frequently 2 MB or 500 KB). 
+              FileCompress enables you to shrink documents locally, inspect the results, and submit compliant files with total confidence.
+            </p>
+          </section>
+
+          {/* Section 9: Why Did My PDF Barely Shrink */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Why Is My PDF Still Too Large After Compression?
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Transparent technical explanations for why some documents shrink dramatically while others do not.
+              </p>
+            </div>
+
+            <p>
+              If your PDF only reduces by a few percent after compression, this does not indicate an error. Common reasons include:
+            </p>
+
+            <ul className="list-disc pl-5 space-y-2 text-sm">
+              <li>
+                <strong>Pre-existing Flate Optimization:</strong> Modern PDF creators (like Microsoft Print to PDF or Adobe InDesign) already apply Flate stream compression during initial export.
+              </li>
+              <li>
+                <strong>Vector &amp; Text-Only Content:</strong> Documents consisting solely of character glyphs and vector coordinates are already compact; there is little redundant data to discard.
+              </li>
+              <li>
+                <strong>Embedded Image Formats:</strong> If embedded photos are already compressed with aggressive JPEG encoding, further lossless stream packing cannot safely reduce them without re-sampling.
+              </li>
+              <li>
+                <strong>Encrypted or Locked Streams:</strong> Documents with DRM restrictions or security policies prevent internal restructuring without first removing the password.
+              </li>
+            </ul>
+          </section>
+
+          {/* Section 10: Security and Confidentiality */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Is It Safe to Compress a PDF Online?
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Why client-side browser processing is the only truly secure model for sensitive documents.
+              </p>
+            </div>
+
+            <p>
+              PDFs frequently contain highly confidential records: signed NDAs, tax forms, payroll sheets, medical diagnostics, legal contracts, and passports. 
+              Uploading these files to traditional online compressors exposes them to third-party cloud servers, risk of data breaches, and unauthorized retention.
+            </p>
+
+            <div className="p-5 rounded-2xl bg-rose-50/70 border border-rose-200/90 not-prose my-6">
+              <div className="flex items-center gap-2.5 text-rose-900 font-bold text-sm mb-2">
+                <Lock className="w-4 h-4 text-rose-600" />
+                <span>The FileCompress 100% On-Device Guarantee</span>
+              </div>
+              <p className="text-xs text-rose-950 leading-relaxed">
+                FileCompress processes PDF files entirely within your web browser sandbox via client-side WebAssembly and JavaScript (`pdf-lib`). 
+                <strong>Your files are never transmitted to any external server</strong>, no cloud database stores your data, and no third party can ever view your records. 
+                Your documents remain strictly confidential and completely under your control. Learn more in our{' '}
+                <Link href="/privacy-policy" className="text-rose-700 underline font-semibold hover:text-rose-900">
+                  Privacy Policy
+                </Link>.
+              </p>
+            </div>
+          </section>
+
+          {/* Section 11: 6 Tips for Better Results */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Tips for Getting Better PDF Compression Results
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Proven best practices to ensure optimal balance between low byte count and high visual quality.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose my-6">
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                <div className="text-xs font-bold text-rose-700 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>1. Always Start with the Original File</span>
+                </div>
+                <p className="text-xs text-slate-600">
+                  Repeatedly compressing an already-compressed PDF accumulates compression artifacts without delivering meaningful byte reductions.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                <div className="text-xs font-bold text-rose-700 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>2. Match Preset to Document Purpose</span>
+                </div>
+                <p className="text-xs text-slate-600">
+                  Use Balanced for email and general sharing; use Smaller File for strict portal upload caps; use High Quality for legal contracts.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                <div className="text-xs font-bold text-rose-700 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>3. Verify Portal Upload Limits First</span>
+                </div>
+                <p className="text-xs text-slate-600">
+                  Check whether the receiving system requires a PDF under 200 KB, 500 KB, or 2 MB before processing so you can verify compliance.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                <div className="text-xs font-bold text-rose-700 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>4. Inspect the Entire Document</span>
+                </div>
+                <p className="text-xs text-slate-600">
+                  Check beginning, middle, and ending pages. Pay special attention to small table text, signatures, and stamps before submitting.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                <div className="text-xs font-bold text-rose-700 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>5. Remove Unneeded Pages First</span>
+                </div>
+                <p className="text-xs text-slate-600">
+                  If an appendix or blank page is unnecessary, deleting it with a PDF editor eliminates weight before running compression.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                <div className="text-xs font-bold text-rose-700 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>6. Retain an Uncompressed Master Copy</span>
+                </div>
+                <p className="text-xs text-slate-600">
+                  Always keep your original master document safely archived so you can re-export or re-compress in the future if required.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 12: Frequently Asked Questions */}
+          <section className="space-y-6">
+            <div className="border-l-4 border-rose-600 pl-4 sm:pl-6 py-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Frequently Asked Questions About Online PDF Compression
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Clear, practical answers to common questions about PDF compression, document quality, security, and size limits.
+              </p>
+            </div>
+
+            <div className="space-y-4 not-prose">
+              {PDF_FAQS.map((faq, idx) => (
+                <div key={idx} className="glass-card-3d p-6 rounded-2xl space-y-2">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-2 tracking-tight">
+                    <HelpCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                    <span>{faq.question}</span>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pl-6">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 13: Related Tools and Guides Callout */}
+          <section className="p-8 rounded-3xl bg-gradient-to-br from-rose-50/90 to-blue-50/70 border border-rose-100 shadow-sm not-prose text-center space-y-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              Make Your PDF Easier to Share with FileCompress
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+              Large PDF files do not have to slow you down. Use the tool above, review the resulting file, and choose the version that best balances file size, clarity, and readability. 
+              Explore our full suite of free, 100% private browser tools:
+            </p>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
+              <Link
+                href="/image-compressor"
+                className="p-3 rounded-xl bg-white border border-slate-200/80 hover:border-rose-400 hover:shadow-xs transition-all flex flex-col items-center gap-1.5 group text-center"
+              >
+                <ImageIcon className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+                <span className="text-xs font-bold text-slate-800">Image Compressor</span>
+                <span className="text-[10px] text-slate-500">JPG, PNG &amp; WebP</span>
+              </Link>
+
+              <Link
+                href="/video-compressor"
+                className="p-3 rounded-xl bg-white border border-slate-200/80 hover:border-rose-400 hover:shadow-xs transition-all flex flex-col items-center gap-1.5 group text-center"
+              >
+                <Film className="w-5 h-5 text-purple-600 group-hover:scale-110 transition-transform" />
+                <span className="text-xs font-bold text-slate-800">Video Compressor</span>
+                <span className="text-[10px] text-slate-500">MP4 &amp; WebM clips</span>
+              </Link>
+
+              <Link
+                href="/audio-compressor"
+                className="p-3 rounded-xl bg-white border border-slate-200/80 hover:border-rose-400 hover:shadow-xs transition-all flex flex-col items-center gap-1.5 group text-center"
+              >
+                <Music className="w-5 h-5 text-emerald-600 group-hover:scale-110 transition-transform" />
+                <span className="text-xs font-bold text-slate-800">Audio Compressor</span>
+                <span className="text-[10px] text-slate-500">MP3 &amp; WAV audio</span>
+              </Link>
+
+              <Link
+                href="/zip-compressor"
+                className="p-3 rounded-xl bg-white border border-slate-200/80 hover:border-rose-400 hover:shadow-xs transition-all flex flex-col items-center gap-1.5 group text-center"
+              >
+                <FolderArchive className="w-5 h-5 text-amber-600 group-hover:scale-110 transition-transform" />
+                <span className="text-xs font-bold text-slate-800">ZIP Utility</span>
+                <span className="text-[10px] text-slate-500">Bundle &amp; archive</span>
+              </Link>
+            </div>
+
+            <div className="pt-2">
+              <Link
+                href="/how-to-compress-files"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-rose-700 hover:text-rose-900 transition-colors"
+              >
+                <span>Read our Comprehensive Step-by-Step File Compression Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </section>
+
+        </article>
       </main>
     </>
   );

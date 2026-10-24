@@ -50,6 +50,16 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/gif-compressor" className="hover:text-blue-400 transition-colors">
+                  GIF Compressor (Animated &amp; Static)
+                </Link>
+              </li>
+              <li>
+                <Link href="/png-compressor" className="hover:text-blue-400 transition-colors">
+                  PNG Compressor (PNG-8 &amp; Alpha Transparency)
+                </Link>
+              </li>
+              <li>
                 <Link href="/video-compressor" className="hover:text-blue-400 transition-colors">
                   Video Compressor (MP4, WebM)
                 </Link>

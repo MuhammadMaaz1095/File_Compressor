@@ -6,7 +6,12 @@ import {
   Film,
   Music,
   Archive,
+  Sparkles,
   ArrowRight,
+  FileCode,
+  FileSpreadsheet,
+  Presentation,
+  Layers,
 } from 'lucide-react';
 
 interface RelatedToolsProps {
@@ -16,6 +21,70 @@ interface RelatedToolsProps {
 }
 
 const TOOLS = [
+  {
+    href: '/svg-compressor',
+    title: 'SVG Compressor',
+    description: 'Optimize vector graphics, sanitize scripts, and simplify path coordinates.',
+    icon: FileCode,
+    color: 'text-amber-600 bg-amber-50 group-hover:bg-amber-600 group-hover:text-white',
+    linkText: 'Compress SVG',
+  },
+  {
+    href: '/webp-compressor',
+    title: 'WebP Compressor',
+    description: 'Reduce WebP image file sizes while preserving 8-bit alpha transparency.',
+    icon: ImageIcon,
+    color: 'text-sky-600 bg-sky-50 group-hover:bg-sky-600 group-hover:text-white',
+    linkText: 'Compress WebP',
+  },
+  {
+    href: '/tiff-compressor',
+    title: 'TIFF Compressor',
+    description: 'Losslessly compress single and multi-page TIFF scans using Deflate level 9.',
+    icon: Layers,
+    color: 'text-indigo-600 bg-indigo-50 group-hover:bg-indigo-600 group-hover:text-white',
+    linkText: 'Compress TIFF',
+  },
+  {
+    href: '/word-compressor',
+    title: 'Word Compressor',
+    description: 'Reduce DOCX sizes by optimizing embedded images and repacking OpenXML.',
+    icon: FileText,
+    color: 'text-blue-600 bg-blue-50 group-hover:bg-blue-600 group-hover:text-white',
+    linkText: 'Compress Word',
+  },
+  {
+    href: '/mp4-compressor',
+    title: 'MP4 Compressor',
+    description: 'Downscale resolution, tune bitrates, and shrink MP4 clips for email and Discord.',
+    icon: Film,
+    color: 'text-purple-600 bg-purple-50 group-hover:bg-purple-600 group-hover:text-white',
+    linkText: 'Compress MP4',
+  },
+  {
+    href: '/mov-compressor',
+    title: 'MOV Compressor',
+    description: 'Transcode heavy Apple QuickTime (.mov) clips into compact web-compatible video.',
+    icon: Film,
+    color: 'text-violet-600 bg-violet-50 group-hover:bg-violet-600 group-hover:text-white',
+    linkText: 'Compress MOV',
+  },
+  {
+    href: '/png-compressor',
+    title: 'PNG Compressor',
+    description: 'Quantize PNG-8 palettes, preserve alpha transparency, and optimize Deflate streams.',
+    icon: ImageIcon,
+    color: 'text-indigo-600 bg-indigo-50 group-hover:bg-indigo-600 group-hover:text-white',
+    linkText: 'Compress PNG',
+  },
+  {
+    href: '/gif-compressor',
+    title: 'GIF Compressor',
+    description: 'Optimize animated GIFs, downscale dimensions, and quantize color palettes.',
+    icon: Sparkles,
+    color: 'text-amber-600 bg-amber-50 group-hover:bg-amber-600 group-hover:text-white',
+    linkText: 'Compress GIF',
+  },
   {
     href: '/image-compressor',
     title: 'Image Compressor',
@@ -74,7 +143,7 @@ export function RelatedTools({
         )}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {visibleTools.map((tool) => {
           const Icon = tool.icon;
           return (

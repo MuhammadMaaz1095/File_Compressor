@@ -181,8 +181,9 @@ export async function compressAudio(
 
   let targetBitrate = settings.bitrateKbps;
 
-  // Calculate target bitrate if targetSizeMB is provided
-  if (settings.targetSizeMB && settings.targetSizeMB > 0) {
+  if (settings.mode === 'bitrate') {
+    targetBitrate = settings.bitrateKbps;
+  } else if (settings.targetSizeMB && settings.targetSizeMB > 0) {
     const calculatedKbps = Math.round((settings.targetSizeMB * 8 * 1024) / duration);
     const available = [64, 96, 128, 192, 256, 320];
     targetBitrate = (available.reduce((prev, curr) =>

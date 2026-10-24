@@ -97,7 +97,8 @@ export function getCategoryFromFile(
     name.endsWith('.jpg') ||
     name.endsWith('.jpeg') ||
     name.endsWith('.png') ||
-    name.endsWith('.webp')
+    name.endsWith('.webp') ||
+    name.endsWith('.gif')
   ) {
     return 'image';
   }
@@ -129,6 +130,7 @@ export function getCompressedFilename(
   if (targetMime === 'image/jpeg') newExt = 'jpg';
   else if (targetMime === 'image/png') newExt = 'png';
   else if (targetMime === 'image/webp') newExt = 'webp';
+  else if (targetMime === 'image/gif') newExt = 'gif';
   else if (targetMime === 'application/pdf') newExt = 'pdf';
   else if (targetMime === 'video/mp4') newExt = 'mp4';
   else if (targetMime.startsWith('video/webm')) newExt = 'webm';

@@ -42,6 +42,7 @@ export interface AudioSettings {
   outputFormat: AudioOutputFormatOption;
   channels: 'keep' | 'mono';
   targetSizeMB?: number;
+  mode?: 'preset' | 'bitrate';
 }
 
 export interface CompressionSettings {
