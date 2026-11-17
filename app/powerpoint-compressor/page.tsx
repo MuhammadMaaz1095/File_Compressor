@@ -19,17 +19,17 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free PowerPoint Compressor – Reduce PPTX Size | FileCompress',
+  title: 'Free PowerPoint Compressor – Reduce PPTX Size',
   description:
     'Reduce PowerPoint presentation file size with FileCompress. Explore supported presentation optimisation and download a processed PPTX when available.',
   alternates: {
-    canonical: 'https://filecompress.app/powerpoint-compressor',
+    canonical: '/powerpoint-compressor',
   },
   openGraph: {
     title: 'Free PowerPoint Compressor – Reduce PPTX Size | FileCompress',
     description:
       'Reduce PowerPoint presentation file size with FileCompress. Explore supported presentation optimisation and download a processed PPTX when available.',
-    url: 'https://filecompress.app/powerpoint-compressor',
+    url: '/powerpoint-compressor',
     type: 'website',
   },
 };

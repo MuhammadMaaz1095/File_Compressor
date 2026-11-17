@@ -19,17 +19,17 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free MP3 Compressor Online – Reduce MP3 Size | FileCompress',
+  title: 'Free MP3 Compressor Online – Reduce MP3 Size',
   description:
     'Compress MP3 files online with FileCompress. Reduce audio file size with supported bitrate settings and download your processed audio.',
   alternates: {
-    canonical: 'https://filecompress.app/mp3-compressor',
+    canonical: '/mp3-compressor',
   },
   openGraph: {
     title: 'Free MP3 Compressor Online – Reduce MP3 Size | FileCompress',
     description:
       'Compress MP3 files online with FileCompress. Reduce audio file size with supported bitrate settings and download your processed audio.',
-    url: 'https://filecompress.app/mp3-compressor',
+    url: '/mp3-compressor',
     type: 'website',
   },
 };

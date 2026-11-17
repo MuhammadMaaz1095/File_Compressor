@@ -14,17 +14,17 @@ import { AdSlot } from "@/components/ads/AdSlot";
 import { JsonLd, getSoftwareAppSchema, getFaqSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Free Online Video Compressor – Reduce Video Size | FileCompress",
+  title: "Free Online Video Compressor – Reduce Video Size",
   description:
     "Compress videos online for free with FileCompress. Reduce video file size, compress MP4 files, and prepare videos for email, sharing, and uploads.",
   alternates: {
-    canonical: "https://filecompress.app/video-compressor",
+    canonical: "/video-compressor",
   },
   openGraph: {
-    title: "Video Compressor Online – Reduce MP4 & WebM File Size | FileCompress",
+    title: "Free Online Video Compressor – Reduce Video Size | FileCompress",
     description:
       "Reduce MP4, WebM, and MOV video file sizes directly in your browser. 100% on-device transcoding with zero cloud uploads.",
-    url: "https://filecompress.app/video-compressor",
+    url: "/video-compressor",
   },
 };
 
@@ -54,7 +54,21 @@ const VIDEO_FAQS = [
 export default function VideoCompressorPage() {
   return (
     <>
-      <JsonLd data={getSoftwareAppSchema()} />
+      <JsonLd
+        data={getSoftwareAppSchema({
+          name: "FileCompress Video Compressor",
+          urlPath: "/video-compressor",
+          description:
+            "Free online video compressor. Reduce MP4, WebM, and MOV video sizes with customizable resolution presets, bitrates, and target size calculation directly in your browser.",
+          applicationCategory: "MultimediaApplication",
+          featureList: [
+            "Hardware-accelerated in-browser video transcoding",
+            "Resolution downscaling (1080p, 720p, 480p, 360p)",
+            "Target size optimization for email and Discord sharing",
+            "Mute and remove audio tracks to conserve space",
+          ],
+        })}
+      />
       <JsonLd data={getFaqSchema(VIDEO_FAQS)} />
 
       <main className="flex-1 pb-16">

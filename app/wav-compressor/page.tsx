@@ -18,17 +18,17 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free WAV Compressor Online – Reduce WAV File Size | FileCompress',
+  title: 'Free WAV Compressor Online – Reduce WAV File Size',
   description:
     'Reduce WAV audio file size with FileCompress. Explore supported audio settings and download a smaller or converted audio file when processing succeeds.',
   alternates: {
-    canonical: 'https://filecompress.app/wav-compressor',
+    canonical: '/wav-compressor',
   },
   openGraph: {
     title: 'Free WAV Compressor Online – Reduce WAV File Size | FileCompress',
     description:
       'Reduce WAV audio file size with FileCompress. Explore supported audio settings and download a smaller or converted audio file when processing succeeds.',
-    url: 'https://filecompress.app/wav-compressor',
+    url: '/wav-compressor',
     type: 'website',
   },
 };

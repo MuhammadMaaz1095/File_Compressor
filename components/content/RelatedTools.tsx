@@ -24,105 +24,137 @@ const TOOLS = [
   {
     href: '/svg-compressor',
     title: 'SVG Compressor',
-    description: 'Optimize vector graphics, sanitize scripts, and simplify path coordinates.',
+    description: 'Optimize vector graphics, clean markup, and simplify coordinate precision.',
     icon: FileCode,
-    color: 'text-amber-600 bg-amber-50 group-hover:bg-amber-600 group-hover:text-white',
+    badgeBg: 'bg-amber-50 text-amber-600 border-amber-200/70',
     linkText: 'Compress SVG',
   },
   {
     href: '/webp-compressor',
     title: 'WebP Compressor',
-    description: 'Reduce WebP image file sizes while preserving 8-bit alpha transparency.',
+    description: 'Reduce next-gen WebP image sizes while preserving 8-bit alpha transparency.',
     icon: ImageIcon,
-    color: 'text-sky-600 bg-sky-50 group-hover:bg-sky-600 group-hover:text-white',
+    badgeBg: 'bg-sky-50 text-sky-600 border-sky-200/70',
     linkText: 'Compress WebP',
   },
   {
     href: '/tiff-compressor',
     title: 'TIFF Compressor',
-    description: 'Losslessly compress single and multi-page TIFF scans using Deflate level 9.',
+    description: 'Losslessly compress single and multi-page TIFF scans using Deflate stream encoding.',
     icon: Layers,
-    color: 'text-indigo-600 bg-indigo-50 group-hover:bg-indigo-600 group-hover:text-white',
+    badgeBg: 'bg-indigo-50 text-indigo-600 border-indigo-200/70',
     linkText: 'Compress TIFF',
   },
   {
-    href: '/word-compressor',
-    title: 'Word Compressor',
-    description: 'Reduce DOCX sizes by optimizing embedded images and repacking OpenXML.',
-    icon: FileText,
-    color: 'text-blue-600 bg-blue-50 group-hover:bg-blue-600 group-hover:text-white',
-    linkText: 'Compress Word',
+    href: '/png-compressor',
+    title: 'PNG Compressor',
+    description: 'Quantize 8-bit palettes, preserve alpha transparency, and optimize Deflate scanlines.',
+    icon: ImageIcon,
+    badgeBg: 'bg-blue-50 text-blue-600 border-blue-200/70',
+    linkText: 'Compress PNG',
+  },
+  {
+    href: '/gif-compressor',
+    title: 'GIF Compressor',
+    description: 'Optimize animated frames, scale dimensions, and cluster color palettes.',
+    icon: Sparkles,
+    badgeBg: 'bg-amber-50 text-amber-500 border-amber-200/70',
+    linkText: 'Compress GIF',
+  },
+  {
+    href: '/image-compressor',
+    title: 'Image Compressor',
+    description: 'Compress JPG, PNG, and WebP pictures with side-by-side visual inspection.',
+    icon: ImageIcon,
+    badgeBg: 'bg-blue-50 text-blue-600 border-blue-200/70',
+    linkText: 'Compress Images',
   },
   {
     href: '/mp4-compressor',
     title: 'MP4 Compressor',
     description: 'Downscale resolution, tune bitrates, and shrink MP4 clips for email and Discord.',
     icon: Film,
-    color: 'text-purple-600 bg-purple-50 group-hover:bg-purple-600 group-hover:text-white',
+    badgeBg: 'bg-purple-50 text-purple-600 border-purple-200/70',
     linkText: 'Compress MP4',
   },
   {
     href: '/mov-compressor',
     title: 'MOV Compressor',
-    description: 'Transcode heavy Apple QuickTime (.mov) clips into compact web-compatible video.',
+    description: 'Transcode heavy Apple QuickTime (.mov) clips into compact web video.',
     icon: Film,
-    color: 'text-violet-600 bg-violet-50 group-hover:bg-violet-600 group-hover:text-white',
+    badgeBg: 'bg-violet-50 text-violet-600 border-violet-200/70',
     linkText: 'Compress MOV',
   },
   {
-    href: '/png-compressor',
-    title: 'PNG Compressor',
-    description: 'Quantize PNG-8 palettes, preserve alpha transparency, and optimize Deflate streams.',
-    icon: ImageIcon,
-    color: 'text-indigo-600 bg-indigo-50 group-hover:bg-indigo-600 group-hover:text-white',
-    linkText: 'Compress PNG',
-  },
-  {
-    href: '/gif-compressor',
-    title: 'GIF Compressor',
-    description: 'Optimize animated GIFs, downscale dimensions, and quantize color palettes.',
-    icon: Sparkles,
-    color: 'text-amber-600 bg-amber-50 group-hover:bg-amber-600 group-hover:text-white',
-    linkText: 'Compress GIF',
-  },
-  {
-    href: '/image-compressor',
-    title: 'Image Compressor',
-    description: 'Compress JPG, PNG, and WebP pictures with side-by-side quality inspection.',
-    icon: ImageIcon,
-    color: 'text-blue-600 bg-blue-50 group-hover:bg-blue-600 group-hover:text-white',
-    linkText: 'Compress Images',
+    href: '/video-compressor',
+    title: 'All Video Formats',
+    description: 'Transcode and downscale MP4, WebM, and MOV clips to fit upload limits.',
+    icon: Film,
+    badgeBg: 'bg-purple-50 text-purple-600 border-purple-200/70',
+    linkText: 'Compress Video',
   },
   {
     href: '/pdf-compressor',
     title: 'PDF Compressor',
     description: 'Optimize documents and strip redundant object streams for easy email sharing.',
     icon: FileText,
-    color: 'text-rose-600 bg-rose-50 group-hover:bg-rose-600 group-hover:text-white',
+    badgeBg: 'bg-rose-50 text-rose-600 border-rose-200/70',
     linkText: 'Compress PDF',
   },
   {
-    href: '/video-compressor',
-    title: 'Video Compressor',
-    description: 'Transcode and downscale MP4, WebM, and MOV clips to fit upload limits.',
-    icon: Film,
-    color: 'text-purple-600 bg-purple-50 group-hover:bg-purple-600 group-hover:text-white',
-    linkText: 'Compress Video',
+    href: '/word-compressor',
+    title: 'Word Compressor',
+    description: 'Reduce DOCX sizes by optimizing embedded images and repacking OpenXML.',
+    icon: FileText,
+    badgeBg: 'bg-blue-50 text-blue-600 border-blue-200/70',
+    linkText: 'Compress Word',
+  },
+  {
+    href: '/excel-compressor',
+    title: 'Excel Compressor',
+    description: 'Streamline oversized spreadsheets, remove cached data, and shrink XLSX files.',
+    icon: FileSpreadsheet,
+    badgeBg: 'bg-emerald-50 text-emerald-600 border-emerald-200/70',
+    linkText: 'Compress Excel',
+  },
+  {
+    href: '/powerpoint-compressor',
+    title: 'PowerPoint Compressor',
+    description: 'Downscale heavy presentation slide decks and compress embedded pictures.',
+    icon: Presentation,
+    badgeBg: 'bg-amber-50 text-amber-600 border-amber-200/70',
+    linkText: 'Compress PPTX',
+  },
+  {
+    href: '/mp3-compressor',
+    title: 'MP3 Compressor',
+    description: 'Modulate audio bitrates, downmix channels, and optimize MP3 audio tracks.',
+    icon: Music,
+    badgeBg: 'bg-emerald-50 text-emerald-600 border-emerald-200/70',
+    linkText: 'Compress MP3',
+  },
+  {
+    href: '/wav-compressor',
+    title: 'WAV Compressor',
+    description: 'Compress uncompressed WAV audio into high-fidelity web-friendly audio.',
+    icon: Music,
+    badgeBg: 'bg-teal-50 text-teal-600 border-teal-200/70',
+    linkText: 'Compress WAV',
   },
   {
     href: '/audio-compressor',
     title: 'Audio Compressor',
-    description: 'Reduce audio file sizes with custom bitrates and stereo-to-mono downmixing.',
+    description: 'Universal in-browser audio optimizer supporting MP3, WAV, M4A, and OGG.',
     icon: Music,
-    color: 'text-emerald-600 bg-emerald-50 group-hover:bg-emerald-600 group-hover:text-white',
+    badgeBg: 'bg-emerald-50 text-emerald-600 border-emerald-200/70',
     linkText: 'Compress Audio',
   },
   {
     href: '/zip-compressor',
     title: 'ZIP Compressor',
-    description: 'Combine multiple files into a compressed ZIP archive with custom compression levels.',
+    description: 'Bundle multiple files into an optimized ZIP archive with custom Deflate levels.',
     icon: Archive,
-    color: 'text-amber-600 bg-amber-50 group-hover:bg-amber-600 group-hover:text-white',
+    badgeBg: 'bg-amber-50 text-amber-600 border-amber-200/70',
     linkText: 'Create ZIP Archive',
   },
 ];
@@ -135,11 +167,11 @@ export function RelatedTools({
   const visibleTools = TOOLS.filter((tool) => tool.href !== currentPath);
 
   return (
-    <section className="my-12 pt-8 border-t border-slate-200/80">
+    <section className="my-14 pt-10 border-t border-slate-200/80">
       <div className="text-left mb-6">
-        <h3 className="text-xl font-bold text-slate-900 tracking-tight">{title}</h3>
+        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">{title}</h3>
         {description && (
-          <p className="text-xs sm:text-sm text-slate-500 mt-1">{description}</p>
+          <p className="text-xs sm:text-sm text-slate-500 mt-1 font-medium">{description}</p>
         )}
       </div>
 
@@ -150,20 +182,22 @@ export function RelatedTools({
             <Link
               key={tool.href}
               href={tool.href}
-              className="glass-card-3d p-5 flex flex-col justify-between group"
+              className="glass-card-3d p-5 flex flex-col justify-between group focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none"
             >
               <div>
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 transition-colors ${tool.color}`}
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3.5 border shadow-2xs transition-transform duration-200 group-hover:scale-105 ${tool.badgeBg}`}
                 >
                   <Icon className="w-5 h-5" />
                 </div>
-                <h4 className="text-sm font-bold text-slate-900 mb-1">{tool.title}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed mb-3">
+                <h4 className="text-sm font-bold text-slate-900 mb-1 tracking-tight group-hover:text-blue-600 transition-colors">
+                  {tool.title}
+                </h4>
+                <p className="text-xs text-slate-500 leading-relaxed mb-4">
                   {tool.description}
                 </p>
               </div>
-              <div className="flex items-center text-xs font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">
+              <div className="flex items-center text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
                 <span>{tool.linkText}</span>
                 <ArrowRight className="w-3.5 h-3.5 ml-1" />
               </div>

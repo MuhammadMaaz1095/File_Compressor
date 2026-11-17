@@ -164,6 +164,19 @@ export function ZipWorkspace() {
 
   return (
     <div className="w-full max-w-5xl mx-auto space-y-6">
+      {/* Hidden file input placed outside role="button" to prevent Axe nested-interactive violation */}
+      <input
+        ref={fileInputRef}
+        id="zip-file-input"
+        type="file"
+        multiple
+        onChange={(e: ChangeEvent<HTMLInputElement>) => handleAddFiles(e.target.files)}
+        className="hidden"
+        disabled={isProcessing}
+        tabIndex={-1}
+        aria-hidden="true"
+      />
+
       {/* Upload Zone */}
       <div
         onDragOver={onDragOver}
@@ -172,22 +185,23 @@ export function ZipWorkspace() {
         onClick={() => !isProcessing && fileInputRef.current?.click()}
         role="button"
         tabIndex={0}
-        aria-label="Upload files to compress into ZIP archive"
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (!isProcessing) fileInputRef.current?.click();
+          }
+        }}
+        aria-label={
+          files.length === 0
+            ? 'Drop files here or click to browse files to compress into ZIP archive'
+            : 'Click or drop more files to add to archive'
+        }
         className={`recessed-dropzone rounded-2xl sm:rounded-3xl border-2 border-dashed p-7 sm:p-11 text-center cursor-pointer transition-all ${
           isDragOver
             ? 'border-blue-500 bg-blue-50/70 scale-[1.01] shadow-xl shadow-blue-500/10'
             : 'border-slate-300/80 hover:border-blue-400 hover:shadow-md'
         }`}
       >
-        <input
-          ref={fileInputRef}
-          type="file"
-          multiple
-          onChange={(e: ChangeEvent<HTMLInputElement>) => handleAddFiles(e.target.files)}
-          className="hidden"
-          disabled={isProcessing}
-        />
-
         <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-sky-400 text-white flex items-center justify-center mx-auto mb-4 shadow-md shadow-blue-500/20">
           <Archive className="w-8 h-8 sm:w-9 sm:h-9" />
         </div>

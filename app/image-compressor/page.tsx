@@ -29,17 +29,17 @@ import { AdSlot } from '@/components/ads/AdSlot';
 import { JsonLd, getSoftwareAppSchema, getFaqSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Free Online Image Compressor – Reduce Image Size | FileCompress',
+  title: 'Free Online Image Compressor – Reduce Image Size',
   description:
     'Compress images online with FileCompress. Reduce image file size, learn about JPG, PNG and WebP compression, and make images smaller for websites, email and sharing.',
   alternates: {
-    canonical: 'https://filecompress.app/image-compressor',
+    canonical: '/image-compressor',
   },
   openGraph: {
-    title: 'Free Online Image Compressor – Reduce Image Size Easily | FileCompress',
+    title: 'Free Online Image Compressor – Reduce Image Size | FileCompress',
     description:
       'Compress images online with FileCompress. Reduce image file size, learn about JPG, PNG and WebP compression, and make images smaller for websites, email and sharing.',
-    url: 'https://filecompress.app/image-compressor',
+    url: '/image-compressor',
     type: 'website',
   },
 };
@@ -110,7 +110,21 @@ const IMAGE_FAQS = [
 export default function ImageCompressorPage() {
   return (
     <>
-      <JsonLd data={getSoftwareAppSchema()} />
+      <JsonLd
+        data={getSoftwareAppSchema({
+          name: 'FileCompress Image Compressor',
+          urlPath: '/image-compressor',
+          description:
+            'Free online image compressor. Reduce image file size for JPEG, PNG, and WebP formats directly in your browser with 100% on-device privacy.',
+          applicationCategory: 'MultimediaApplication',
+          featureList: [
+            'Compress JPEG, PNG, and WebP images with adjustable quality',
+            'Interactive side-by-side visual comparison preview',
+            'Configurable max width and height downscaling',
+            'Client-side batch processing with instant ZIP download',
+          ],
+        })}
+      />
       <JsonLd data={getFaqSchema(IMAGE_FAQS)} />
 
       <main className="flex-1 pb-16">

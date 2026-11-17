@@ -10,11 +10,25 @@ import { getCategoryFromFile } from '@/lib/utils/formatters';
 import { compareFileSizes } from '@/lib/compression/file-size';
 import { formatCompressionErrorMessage } from '@/lib/compression/compression-errors';
 import { extractMediaMetadataSafely, testBrowserMediaSupport } from '@/lib/utils/media-support';
+import dynamic from 'next/dynamic';
 import { FileDropzone } from './FileDropzone';
-import { CompressionControls } from './CompressionControls';
-import { CompressionItemRow } from './CompressionItemRow';
-import { StatsOverview } from './StatsOverview';
-import { ImageCompareModal } from './ImageCompareModal';
+
+const CompressionControls = dynamic(
+  () => import('./CompressionControls').then((m) => m.CompressionControls),
+  { ssr: false }
+);
+const CompressionItemRow = dynamic(
+  () => import('./CompressionItemRow').then((m) => m.CompressionItemRow),
+  { ssr: false }
+);
+const StatsOverview = dynamic(
+  () => import('./StatsOverview').then((m) => m.StatsOverview),
+  { ssr: false }
+);
+const ImageCompareModal = dynamic(
+  () => import('./ImageCompareModal').then((m) => m.ImageCompareModal),
+  { ssr: false }
+);
 import {
   AlertCircle,
   CheckCircle2,
@@ -431,6 +445,45 @@ export function ToolWorkspace({
       {/* Active Workspace */}
       {items.length > 0 && (
         <div className="animate-in fade-in duration-300">
+          {/* Pre-Processing Risk Warning */}
+          {(() => {
+            const warnings: string[] = [];
+            const idleItems = items.filter((it) => it.status === 'idle');
+            for (const it of idleItems) {
+              if (it.category === 'image') {
+                const isPng = it.type === 'image/png' || it.name.toLowerCase().endsWith('.png');
+                if (isPng && settings.image.outputFormat === 'original') {
+                  warnings.push(
+                    `"${it.name}" is a PNG. In-browser canvas re-encoding is lossless and may increase size if the source image is already indexed. Converting to WebP or JPEG produces substantial savings.`
+                  );
+                }
+              } else if (it.category === 'video') {
+                if (it.mediaDuration && it.mediaDuration > 0) {
+                  const estBitrate = Math.round((it.originalSize * 8) / (it.mediaDuration * 1000));
+                  if (estBitrate < 800 && settings.video.bitrateKbps > estBitrate && settings.video.preset === 'quality') {
+                    warnings.push(
+                      `"${it.name}" appears already heavily compressed (~${estBitrate} kbps). Re-encoding at higher bitrates could increase size. Try Balanced, 480p, or keep the original if size reduction is your main goal.`
+                    );
+                  }
+                }
+              }
+            }
+            if (warnings.length === 0) return null;
+            return (
+              <div className="mb-4 p-3.5 rounded-2xl bg-amber-50 border border-amber-200/90 text-amber-900 text-xs flex items-start gap-2.5 shadow-2xs">
+                <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <span className="font-bold block">Pre-Compression Optimization Warning</span>
+                  {warnings.map((warn, i) => (
+                    <p key={i} className="text-amber-800 leading-relaxed">
+                      {warn}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+
           {/* Controls & Presets */}
           <CompressionControls
             settings={settings}

@@ -22,17 +22,17 @@ import {
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'About FileCompress | Online File Compression Platform',
+  title: 'About Our Platform – Mission & Architecture',
   description:
     'Learn about FileCompress, our mission to make online file compression simpler and more transparent, our on-device processing architecture, and the creator behind the platform.',
   alternates: {
-    canonical: 'https://filecompress.app/about',
+    canonical: '/about',
   },
   openGraph: {
-    title: 'About FileCompress | Online File Compression Platform',
+    title: 'About FileCompress – Mission & On-Device Architecture | FileCompress',
     description:
       'Learn about FileCompress, our mission to make online file compression simpler and more transparent, our on-device processing architecture, and the creator behind the platform.',
-    url: 'https://filecompress.app/about',
+    url: '/about',
   },
 };
 
@@ -52,7 +52,7 @@ export default function AboutPage() {
             <span>Platform Overview &amp; Engineering Mission</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#14213D] tracking-tight leading-[1.15] mb-5">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] mb-5">
             About FileCompress
           </h1>
 
@@ -85,7 +85,7 @@ export default function AboutPage() {
           <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
             Our Purpose
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14213D] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
             Our Mission: Everyday File Optimization Without Friction
           </h2>
           <p className="text-slate-600 leading-relaxed">
@@ -102,7 +102,7 @@ export default function AboutPage() {
             <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
               Working Capabilities
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14213D] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
               What You Can Do with FileCompress
             </h2>
             <p className="text-slate-600 text-sm">
@@ -120,7 +120,7 @@ export default function AboutPage() {
                 <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3 group-hover:scale-105 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-2xs">
                   <ImageIcon className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-[#14213D] text-base mb-1.5 flex items-center justify-between">
+                <h3 className="font-bold text-[#0F172A] text-base mb-1.5 flex items-center justify-between">
                   <span>Image Compression</span>
                   <ArrowRight className="w-4 h-4 text-blue-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </h3>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                 <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-3 group-hover:scale-105 group-hover:bg-rose-600 group-hover:text-white transition-all shadow-2xs">
                   <FileText className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-[#14213D] text-base mb-1.5 flex items-center justify-between">
+                <h3 className="font-bold text-[#0F172A] text-base mb-1.5 flex items-center justify-between">
                   <span>PDF Compression</span>
                   <ArrowRight className="w-4 h-4 text-rose-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </h3>
@@ -164,7 +164,7 @@ export default function AboutPage() {
                 <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-3 group-hover:scale-105 group-hover:bg-purple-600 group-hover:text-white transition-all shadow-2xs">
                   <Film className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-[#14213D] text-base mb-1.5 flex items-center justify-between">
+                <h3 className="font-bold text-[#0F172A] text-base mb-1.5 flex items-center justify-between">
                   <span>Video Compression</span>
                   <ArrowRight className="w-4 h-4 text-purple-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </h3>
@@ -186,7 +186,7 @@ export default function AboutPage() {
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 group-hover:scale-105 group-hover:bg-emerald-600 group-hover:text-white transition-all shadow-2xs">
                   <Music className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-[#14213D] text-base mb-1.5 flex items-center justify-between">
+                <h3 className="font-bold text-[#0F172A] text-base mb-1.5 flex items-center justify-between">
                   <span>Audio Compression</span>
                   <ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </h3>
@@ -208,7 +208,7 @@ export default function AboutPage() {
                 <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center mb-3 group-hover:scale-105 group-hover:bg-amber-600 group-hover:text-white transition-all shadow-2xs">
                   <Archive className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-[#14213D] text-base mb-1.5 flex items-center justify-between">
+                <h3 className="font-bold text-[#0F172A] text-base mb-1.5 flex items-center justify-between">
                   <span>ZIP Archive Creation</span>
                   <ArrowRight className="w-4 h-4 text-amber-700 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </h3>
@@ -229,7 +229,7 @@ export default function AboutPage() {
             <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
               Product Philosophy
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14213D] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
               Our Technical Approach
             </h2>
             <p className="text-slate-600 text-sm">
@@ -242,7 +242,7 @@ export default function AboutPage() {
               <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-3 font-bold text-xs">
                 01
               </div>
-              <h3 className="font-bold text-[#14213D] text-sm mb-1.5">
+              <h3 className="font-bold text-[#0F172A] text-sm mb-1.5">
                 Simple, Understandable Workflows
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -254,7 +254,7 @@ export default function AboutPage() {
               <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 font-bold text-xs">
                 02
               </div>
-              <h3 className="font-bold text-[#14213D] text-sm mb-1.5">
+              <h3 className="font-bold text-[#0F172A] text-sm mb-1.5">
                 Truthful &amp; Transparent Results
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -266,7 +266,7 @@ export default function AboutPage() {
               <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center mb-3 font-bold text-xs">
                 03
               </div>
-              <h3 className="font-bold text-[#14213D] text-sm mb-1.5">
+              <h3 className="font-bold text-[#0F172A] text-sm mb-1.5">
                 On-Device Privacy by Design
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -278,7 +278,7 @@ export default function AboutPage() {
               <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center mb-3 font-bold text-xs">
                 04
               </div>
-              <h3 className="font-bold text-[#14213D] text-sm mb-1.5">
+              <h3 className="font-bold text-[#0F172A] text-sm mb-1.5">
                 Responsive Across All Devices
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -290,7 +290,7 @@ export default function AboutPage() {
 
         {/* Section 4: Transparency & Technical Limitations */}
         <section className="space-y-4 p-6 sm:p-8 rounded-3xl bg-slate-100/70 border border-slate-200">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#14213D] tracking-tight flex items-center gap-2">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight flex items-center gap-2">
             <HelpCircle className="w-5 h-5 text-blue-600" />
             <span>Transparency &amp; Practical Limitations</span>
           </h2>
@@ -316,7 +316,7 @@ export default function AboutPage() {
             <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
               Behind the Project
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14213D] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
               About the Creator
             </h2>
           </div>
@@ -328,7 +328,7 @@ export default function AboutPage() {
 
             <div className="space-y-3 flex-1">
               <div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#14213D]">
+                <h3 className="text-lg sm:text-xl font-bold text-[#0F172A]">
                   Muhammad Maaz
                 </h3>
                 <p className="text-xs text-blue-600 font-semibold mt-0.5">

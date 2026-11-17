@@ -12,6 +12,8 @@ export interface ImageSettings {
   maxWidth?: number;
   maxHeight?: number;
   outputFormat: OutputImageFormat;
+  targetSizeKB?: number;
+  mode?: 'preset' | 'custom' | 'target-size';
 }
 
 export interface PdfSettings {
@@ -19,6 +21,11 @@ export interface PdfSettings {
   stripMetadata: boolean;
   compressStreams: boolean;
   removeAnnotations: boolean;
+  recompressImages?: boolean;
+  imageQuality?: number; // 0.1 to 1.0 (or 10 to 100)
+  maxImageDimension?: number;
+  targetSizeKB?: number;
+  mode?: 'basic' | 'balanced' | 'strong' | 'target-size';
 }
 
 export type VideoResolutionOption = 'original' | '1080p' | '720p' | '480p' | '360p';

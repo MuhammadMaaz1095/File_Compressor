@@ -5,17 +5,17 @@ import { ShieldCheck, Lock, Eye, FileText, CheckCircle2, Clock, Mail, AlertCircl
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | FileCompress',
+  title: 'Privacy Policy – On-Device Processing Guarantees',
   description:
     'Read the FileCompress Privacy Policy to understand how information is handled, our on-device browser file processing architecture, and our commitment to user privacy.',
   alternates: {
-    canonical: 'https://filecompress.app/privacy-policy',
+    canonical: '/privacy-policy',
   },
   openGraph: {
-    title: 'Privacy Policy | FileCompress',
+    title: 'Privacy Policy – On-Device Processing Guarantees | FileCompress',
     description:
       'Read the FileCompress Privacy Policy to understand how information is handled, our on-device browser file processing architecture, and our commitment to user privacy.',
-    url: 'https://filecompress.app/privacy-policy',
+    url: '/privacy-policy',
   },
 };
 
@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
             <span>Client-Side Data Protection &amp; Privacy Disclosures</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#14213D] tracking-tight leading-[1.15] mb-4">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] mb-4">
             Privacy Policy
           </h1>
 
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
         <div className="p-6 sm:p-8 rounded-3xl bg-emerald-50/90 border border-emerald-200/90 text-emerald-950 flex items-start gap-4 shadow-sm">
           <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-600 shrink-0 mt-0.5" />
           <div className="space-y-2">
-            <h2 className="font-bold text-[#14213D] text-sm sm:text-base">
+            <h2 className="font-bold text-[#0F172A] text-sm sm:text-base">
               Core Architecture Principle: On-Device Browser Processing
             </h2>
             <p className="leading-relaxed text-xs sm:text-sm text-slate-700">
@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 1. Introduction & Scope */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             1. Introduction &amp; Purpose
           </h2>
           <p>
@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 2. Information Users Provide */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             2. Information Users Provide Directly
           </h2>
           <p>
@@ -96,7 +96,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 3. Detailed File Processing Architecture */}
         <section className="space-y-4">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             3. File Processing &amp; Data Isolation
           </h2>
           <p>
@@ -146,7 +146,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 4. Technical Information and Server Logs */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             4. Technical Information &amp; Server Logs
           </h2>
           <p>
@@ -165,7 +165,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 5. Cookies and Local Storage */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             5. Cookies &amp; Local Storage
           </h2>
           <p>
@@ -178,7 +178,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 6. Advertising and Third-Party Services */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             6. Advertising &amp; Third-Party Services
           </h2>
           <p>
@@ -196,7 +196,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 7. Data Retention and Deletion */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             7. Data Retention &amp; Deletion
           </h2>
           <ul className="list-disc pl-5 space-y-2 text-slate-600">
@@ -211,7 +211,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 8. Data Security */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             8. Data Security
           </h2>
           <p>
@@ -228,7 +228,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 9. User Rights & Privacy Requests */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             9. Your Privacy Rights
           </h2>
           <p>
@@ -247,7 +247,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 10. Children's Privacy */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             10. Children&apos;s Privacy
           </h2>
           <p>
@@ -257,7 +257,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 11. International Data Transfers */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             11. International Transfers
           </h2>
           <p>
@@ -267,7 +267,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 12. Changes to this Policy */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             12. Updates to this Privacy Policy
           </h2>
           <p>
@@ -277,7 +277,7 @@ export default function PrivacyPolicyPage() {
 
         {/* 13. Contact Information */}
         <section className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-          <h2 className="text-base sm:text-lg font-bold text-[#14213D]">
+          <h2 className="text-base sm:text-lg font-bold text-[#0F172A]">
             13. Contact &amp; Questions
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">

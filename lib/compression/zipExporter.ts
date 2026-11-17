@@ -1,4 +1,3 @@
-import JSZip from 'jszip';
 import { QueueItem } from './types';
 import { getCompressedFilename } from '../utils/formatters';
 
@@ -18,6 +17,7 @@ export async function downloadAllAsZip(
     throw new Error('No valid processed files available to download');
   }
 
+  const { default: JSZip } = await import('jszip');
   const zip = new JSZip();
   const usedNames = new Set<string>();
 

@@ -15,17 +15,17 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Online ZIP Compressor – Reduce ZIP File Size | FileCompress',
+  title: 'Free Online ZIP Compressor – Reduce ZIP File Size',
   description:
     'Compress ZIP files online with FileCompress. Create ZIP archives, learn how to reduce ZIP file size, and get practical tips for sharing files.',
   alternates: {
-    canonical: 'https://filecompress.app/zip-compressor',
+    canonical: '/zip-compressor',
   },
   openGraph: {
     title: 'Free Online ZIP Compressor – Reduce ZIP File Size | FileCompress',
     description:
       'Compress ZIP files online with FileCompress. Create ZIP archives, learn how to reduce ZIP file size, and get practical tips for sharing files.',
-    url: 'https://filecompress.app/zip-compressor',
+    url: '/zip-compressor',
     type: 'website',
   },
 };
@@ -116,7 +116,21 @@ const ZIP_FAQS = [
 export default function ZipCompressorPage() {
   return (
     <>
-      <JsonLd data={getSoftwareAppSchema()} />
+      <JsonLd
+        data={getSoftwareAppSchema({
+          name: 'FileCompress ZIP Compressor',
+          urlPath: '/zip-compressor',
+          description:
+            'Free online ZIP compressor and archive creator. Package multiple files and documents into compressed ZIP archives directly in your browser with zero server uploads.',
+          applicationCategory: 'UtilitiesApplication',
+          featureList: [
+            'Create standard ZIP archives from multiple files and documents',
+            'Configurable DEFLATE compression levels (Store, Fast, Balanced, Maximum)',
+            'Recompress existing ZIP files to verify further size reduction',
+            '100% on-device client processing with instant download',
+          ],
+        })}
+      />
       <JsonLd data={getFaqSchema(ZIP_FAQS)} />
 
       <main className="flex-1 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full pb-16">

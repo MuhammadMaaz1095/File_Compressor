@@ -8,17 +8,17 @@ import { JsonLd, getSoftwareAppSchema, getFaqSchema } from '@/components/seo/Jso
 import { FileText, ShieldCheck, Zap, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free Word Document Compressor – Reduce DOCX Size | FileCompress',
+  title: 'Free Word Document Compressor – Reduce DOCX Size',
   description:
     'Reduce Word document file size with FileCompress. Explore supported DOCX optimisation, embedded image reduction, and practical ways to make documents smaller.',
   alternates: {
-    canonical: 'https://filecompress.app/word-compressor',
+    canonical: '/word-compressor',
   },
   openGraph: {
     title: 'Free Word Document Compressor – Reduce DOCX Size | FileCompress',
     description:
       'Reduce Word document file size with FileCompress. Explore supported DOCX optimisation, embedded image reduction, and practical ways to make documents smaller.',
-    url: 'https://filecompress.app/word-compressor',
+    url: '/word-compressor',
     type: 'website',
   },
 };

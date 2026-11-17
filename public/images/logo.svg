@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 48" fill="none">
+  <defs>
+    <linearGradient id="fc-doc" x1="4" y1="4" x2="34" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <linearGradient id="fc-fold" x1="24" y1="4" x2="34" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#BAE6FD" />
+      <stop offset="100%" stop-color="#60A5FA" />
+    </linearGradient>
+    <linearGradient id="fc-arrow" x1="32" y1="18" x2="48" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="60%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1E40AF" />
+    </linearGradient>
+    <filter id="fc-glow" x="-15%" y="-15%" width="130%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#2563EB" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Main Document Base -->
+  <path
+    d="M7 8.5C7 5.46243 9.46243 3 12.5 3H24.5L34.5 13V39.5C34.5 42.5376 32.0376 45 29 45H12.5C9.46243 45 7 42.5376 7 39.5V8.5Z"
+    fill="url(#fc-doc)"
+    filter="url(#fc-glow)"
+  />
+
+  <!-- Top-Right Fold with soft translucency -->
+  <path
+    d="M24.5 3V11C24.5 12.1046 25.3954 13 26.5 13H34.5L24.5 3Z"
+    fill="url(#fc-fold)"
+  />
+
+  <!-- Document Header lines -->
+  <rect x="11.5" y="9.5" width="9" height="2.2" rx="1.1" fill="#FFFFFF" fill-opacity="0.9" />
+  <rect x="11.5" y="14" width="7" height="2.2" rx="1.1" fill="#FFFFFF" fill-opacity="0.9" />
+
+  <!-- Center Compression Zipper (Clean, Minimal, Modern) -->
+  <rect x="19.75" y="19" width="2.5" height="19" rx="1.25" fill="#FFFFFF" fill-opacity="0.95" />
+  <rect x="16.5" y="21" width="9" height="2" rx="1" fill="#FFFFFF" />
+  <rect x="17.5" y="24.5" width="7" height="2" rx="1" fill="#FFFFFF" />
+  <rect x="16.5" y="28" width="9" height="2" rx="1" fill="#FFFFFF" />
+  <rect x="17.5" y="31.5" width="7" height="2" rx="1" fill="#FFFFFF" />
+  <!-- Zipper Pull Tab -->
+  <rect x="19" y="35" width="4" height="6.5" rx="2" fill="#FFFFFF" />
+  <circle cx="21" cy="39" r="1.1" fill="#1D4ED8" />
+
+  <!-- Dynamic Compression Arrow (Representing fast reduction) -->
+  <!-- Motion streams -->
+  <rect x="29" y="22" width="6" height="2" rx="1" fill="#38BDF8" fill-opacity="0.8" />
+  <rect x="27" y="26" width="9" height="2.2" rx="1.1" fill="#60A5FA" fill-opacity="0.9" />
+  <rect x="29" y="30" width="7" height="2" rx="1" fill="#38BDF8" fill-opacity="0.8" />
+
+  <!-- Arrow Head -->
+  <path
+    d="M36 19.5L48 27L36 34.5V29.5H32V24.5H36V19.5Z"
+    fill="url(#fc-arrow)"
+    filter="url(#fc-glow)"
+  />
+</svg>

@@ -8,17 +8,17 @@ import { JsonLd, getSoftwareAppSchema, getFaqSchema } from '@/components/seo/Jso
 import { Film, ShieldCheck, Zap, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free MOV Compressor Online – Reduce MOV Video Size | FileCompress',
+  title: 'Free MOV Compressor Online – Reduce MOV Video Size',
   description:
     'Compress supported MOV videos with FileCompress. Reduce video size using available encoding settings and download the processed video.',
   alternates: {
-    canonical: 'https://filecompress.app/mov-compressor',
+    canonical: '/mov-compressor',
   },
   openGraph: {
     title: 'Free MOV Compressor Online – Reduce MOV Video Size | FileCompress',
     description:
       'Compress supported MOV videos with FileCompress. Reduce video size using available encoding settings and download the processed video.',
-    url: 'https://filecompress.app/mov-compressor',
+    url: '/mov-compressor',
     type: 'website',
   },
 };

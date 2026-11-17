@@ -135,6 +135,16 @@ function writeString(view: DataView, offset: number, string: string) {
   }
 }
 
+export function calculateOptimalAudioBitrate(duration: number, targetSizeMB: number): number {
+  const calculatedKbps = Math.round((targetSizeMB * 8 * 1024) / duration);
+  const available = [64, 96, 128, 192, 256, 320];
+  return (
+    available.reduce((prev, curr) =>
+      Math.abs(curr - calculatedKbps) < Math.abs(prev - calculatedKbps) ? curr : prev
+    ) || 128
+  );
+}
+
 /**
  * Real client-side audio compressor.
  * Decodes audio via AudioContext and encodes to standard MP3 or WAV with adaptive bitrate bounding.
@@ -184,11 +194,7 @@ export async function compressAudio(
   if (settings.mode === 'bitrate') {
     targetBitrate = settings.bitrateKbps;
   } else if (settings.targetSizeMB && settings.targetSizeMB > 0) {
-    const calculatedKbps = Math.round((settings.targetSizeMB * 8 * 1024) / duration);
-    const available = [64, 96, 128, 192, 256, 320];
-    targetBitrate = (available.reduce((prev, curr) =>
-      Math.abs(curr - calculatedKbps) < Math.abs(prev - calculatedKbps) ? curr : prev
-    ) as typeof settings.bitrateKbps) || 128;
+    targetBitrate = calculateOptimalAudioBitrate(duration, settings.targetSizeMB) as typeof settings.bitrateKbps;
   } else if (settings.preset === 'smaller') {
     // Aggressive: bound against original bitrate to ensure reduction
     targetBitrate = Math.min(96, Math.max(64, Math.floor(originalBitrateKbps * 0.65))) as typeof settings.bitrateKbps;

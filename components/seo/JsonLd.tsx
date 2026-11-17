@@ -1,4 +1,5 @@
 import React from 'react';
+import { getSiteOrigin } from '@/lib/seo/site-config';
 
 interface JsonLdProps {
   data: Record<string, unknown>;
@@ -13,25 +14,41 @@ export function JsonLd({ data }: JsonLdProps) {
   );
 }
 
-export function getSoftwareAppSchema() {
+export interface SoftwareAppOptions {
+  name?: string;
+  urlPath?: string;
+  description?: string;
+  applicationCategory?: string;
+  featureList?: string[];
+}
+
+export function getSoftwareAppSchema(options: SoftwareAppOptions = {}) {
+  const origin = getSiteOrigin();
+  const url = options.urlPath
+    ? `${origin}${options.urlPath.startsWith('/') ? options.urlPath : `/${options.urlPath}`}`
+    : origin;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'FileCompress',
+    name: options.name || 'FileCompress',
+    url,
     operatingSystem: 'Any (Web Browser)',
-    applicationCategory: 'MultimediaApplication',
+    applicationCategory: options.applicationCategory || 'MultimediaApplication',
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
     },
     description:
-      'Free, secure, browser-based online file compressor for Images (JPEG, PNG, WebP) and PDF documents with zero server uploads.',
-    featureList: [
+      options.description ||
+      'Free, secure, browser-based online file compressor for images, PDFs, videos, audio, and ZIP archives with zero server uploads.',
+    featureList: options.featureList || [
       'Client-side image compression for JPEG, PNG, and WebP',
-      'PDF stream and metadata optimization',
-      'Custom quality and resize controls',
-      'Instant batch download as ZIP',
+      'PDF stream and embedded image optimization',
+      'In-browser video transcoding for MP4 and WebM',
+      'Audio bitrate reduction and mono downmixing',
+      'Instant batch download and ZIP archive bundling',
       'Privacy guaranteed with local device processing',
     ],
   };
@@ -76,5 +93,28 @@ export function getHowToSchema() {
         text: 'Click Compress to process the files locally and download your compressed files individually or as a complete ZIP bundle.',
       },
     ],
+  };
+}
+
+export function getWebSiteSchema() {
+  const origin = getSiteOrigin();
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'FileCompress',
+    url: origin,
+    description:
+      'Free, fast, privacy-first online file compression tools for images, PDFs, videos, audio, and ZIP archives.',
+  };
+}
+
+export function getOrganizationSchema() {
+  const origin = getSiteOrigin();
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'FileCompress',
+    url: origin,
+    logo: `${origin}/images/logo.png`,
   };
 }

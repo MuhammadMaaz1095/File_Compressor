@@ -27,17 +27,17 @@ import { AdSlot } from '@/components/ads/AdSlot';
 import { JsonLd, getSoftwareAppSchema, getFaqSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Free Online PDF Compressor – Reduce PDF Size | FileCompress',
+  title: 'Free Online PDF Compressor – Reduce PDF Size',
   description:
     'Compress PDF files online with FileCompress. Reduce PDF file size for email, sharing and uploads, with tips for balancing file size and document quality.',
   alternates: {
-    canonical: 'https://filecompress.app/pdf-compressor',
+    canonical: '/pdf-compressor',
   },
   openGraph: {
     title: 'Free Online PDF Compressor – Reduce PDF Size | FileCompress',
     description:
       'Compress PDF files online with FileCompress. Reduce PDF file size for email, sharing and uploads, with tips for balancing file size and document quality.',
-    url: 'https://filecompress.app/pdf-compressor',
+    url: '/pdf-compressor',
     type: 'website',
   },
 };
@@ -113,7 +113,21 @@ const PDF_FAQS = [
 export default function PdfCompressorPage() {
   return (
     <>
-      <JsonLd data={getSoftwareAppSchema()} />
+      <JsonLd
+        data={getSoftwareAppSchema({
+          name: 'FileCompress PDF Compressor',
+          urlPath: '/pdf-compressor',
+          description:
+            'Free online PDF compressor. Shrink PDF documents, compact cross-reference streams, and optimize embedded images directly in your browser with zero server uploads.',
+          applicationCategory: 'BusinessApplication',
+          featureList: [
+            'Compress PDF object streams and structure tables',
+            'Image-aware embedded image downsampling and optimization',
+            'Strip unnecessary software creator and printer metadata',
+            '100% private in-browser document processing',
+          ],
+        })}
+      />
       <JsonLd data={getFaqSchema(PDF_FAQS)} />
 
       <main className="flex-1 pb-16">

@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { getSiteOrigin } from '@/lib/seo/site-config';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://filecompress.app';
+  const baseUrl = getSiteOrigin();
 
   return {
     rules: [

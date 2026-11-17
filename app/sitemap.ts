@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { getSiteOrigin } from '@/lib/seo/site-config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://filecompress.app';
+  const baseUrl = getSiteOrigin();
   const currentDate = new Date('2026-10-23');
 
   return [
@@ -31,6 +32,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/word-compressor`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/excel-compressor`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/powerpoint-compressor`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/mp3-compressor`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/wav-compressor`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,

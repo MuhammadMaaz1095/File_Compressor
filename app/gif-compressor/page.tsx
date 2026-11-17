@@ -20,17 +20,17 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free GIF Compressor Online – Reduce GIF Size | FileCompress',
+  title: 'Free GIF Compressor Online – Reduce GIF Size',
   description:
     'Compress animated GIFs online for free. Reduce GIF file size, optimise animation, and download smaller GIFs with FileCompress.',
   alternates: {
-    canonical: 'https://filecompress.app/gif-compressor',
+    canonical: '/gif-compressor',
   },
   openGraph: {
     title: 'Free GIF Compressor Online – Reduce GIF Size | FileCompress',
     description:
       'Compress animated GIFs online for free. Reduce GIF file size, optimise animation, and download smaller GIFs with FileCompress.',
-    url: 'https://filecompress.app/gif-compressor',
+    url: '/gif-compressor',
     type: 'website',
   },
 };

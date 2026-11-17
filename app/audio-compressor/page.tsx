@@ -14,17 +14,17 @@ import { AdSlot } from '@/components/ads/AdSlot';
 import { JsonLd, getSoftwareAppSchema, getFaqSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Free Online Audio Compressor – Reduce Audio Size | FileCompress',
+  title: 'Free Online Audio Compressor – Reduce Audio Size',
   description:
     'Compress audio online for free with FileCompress. Reduce MP3 and WAV file sizes, learn about audio bitrate, and make recordings easier to share.',
   alternates: {
-    canonical: 'https://filecompress.app/audio-compressor',
+    canonical: '/audio-compressor',
   },
   openGraph: {
     title: 'Free Online Audio Compressor – Reduce Audio Size | FileCompress',
     description:
       'Compress audio online for free with FileCompress. Reduce MP3 and WAV file sizes, learn about audio bitrate, and make recordings easier to share.',
-    url: 'https://filecompress.app/audio-compressor',
+    url: '/audio-compressor',
   },
 };
 
@@ -109,7 +109,21 @@ const AUDIO_FAQS = [
 export default function AudioCompressorPage() {
   return (
     <>
-      <JsonLd data={getSoftwareAppSchema()} />
+      <JsonLd
+        data={getSoftwareAppSchema({
+          name: 'FileCompress Audio Compressor',
+          urlPath: '/audio-compressor',
+          description:
+            'Free online audio compressor. Reduce MP3 and WAV audio file sizes with configurable bitrates, stereo-to-mono downmixing, and instant playback preview.',
+          applicationCategory: 'MultimediaApplication',
+          featureList: [
+            'Client-side MP3 and WAV audio bitrate encoding',
+            'Configurable bitrates (64 kbps to 320 kbps)',
+            'Stereo-to-mono downmixing for up to 50% extra size reduction',
+            'In-browser playback preview before downloading',
+          ],
+        })}
+      />
       <JsonLd data={getFaqSchema(AUDIO_FAQS)} />
 
       <main className="flex-1 pb-16">

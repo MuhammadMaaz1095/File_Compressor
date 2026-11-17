@@ -17,17 +17,17 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { ContactForm } from '@/components/contact/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact & Support | FileCompress',
+  title: 'Contact & Technical Support',
   description:
     'Get in touch with FileCompress support. Reach out to Muhammad Maaz for technical inquiries, bug reports, format support requests, or general feedback.',
   alternates: {
-    canonical: 'https://filecompress.app/contact',
+    canonical: '/contact',
   },
   openGraph: {
-    title: 'Contact & Support | FileCompress',
+    title: 'Contact & Technical Support | FileCompress',
     description:
       'Get in touch with FileCompress support. Reach out to Muhammad Maaz for technical inquiries, bug reports, format support requests, or general feedback.',
-    url: 'https://filecompress.app/contact',
+    url: '/contact',
   },
 };
 
@@ -47,7 +47,7 @@ export default function ContactPage() {
             <span>Support, Feedback &amp; Inquiries</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#14213D] tracking-tight leading-[1.15] mb-5">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] mb-5">
             Contact FileCompress
           </h1>
 
@@ -65,7 +65,7 @@ export default function ContactPage() {
             <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
               Direct Channels
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#14213D] tracking-tight mt-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight mt-1">
               How to Reach Us
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -85,7 +85,7 @@ export default function ContactPage() {
                 <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 shadow-2xs">
                   <Mail className="w-6 h-6" />
                 </div>
-                <h3 className="text-base font-bold text-[#14213D] mb-1">
+                <h3 className="text-base font-bold text-[#0F172A] mb-1">
                   Email Support
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed mb-4">
@@ -106,7 +106,7 @@ export default function ContactPage() {
                 <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 shadow-2xs">
                   <MessageSquare className="w-6 h-6" />
                 </div>
-                <h3 className="text-base font-bold text-[#14213D] mb-1">
+                <h3 className="text-base font-bold text-[#0F172A] mb-1">
                   WhatsApp Messaging
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed mb-4">
@@ -130,7 +130,7 @@ export default function ContactPage() {
                 <div className="w-12 h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-4 shadow-2xs">
                   <ExternalLink className="w-6 h-6" />
                 </div>
-                <h3 className="text-base font-bold text-[#14213D] mb-1">
+                <h3 className="text-base font-bold text-[#0F172A] mb-1">
                   Creator Profile
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed mb-4">
@@ -155,7 +155,7 @@ export default function ContactPage() {
           {/* Left Column: Real Interactive Form (7 cols) */}
           <div className="lg:col-span-7">
             <div className="space-y-2 mb-6">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#14213D] tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#0F172A] tracking-tight">
                 Send Us a Message
               </h2>
               <p className="text-xs sm:text-sm text-slate-500">
@@ -172,7 +172,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-6">
             {/* Guidelines: What to include */}
             <div className="glass-card rounded-2xl p-6 border border-slate-200/80 space-y-3">
-              <h3 className="text-sm font-bold text-[#14213D] flex items-center gap-2">
+              <h3 className="text-sm font-bold text-[#0F172A] flex items-center gap-2">
                 <FileQuestion className="w-4 h-4 text-blue-600 shrink-0" />
                 <span>What to Include in a Support Request</span>
               </h3>
@@ -211,7 +211,7 @@ export default function ContactPage() {
 
             {/* Response Time Policy */}
             <div className="glass-card rounded-2xl p-6 border border-slate-200/80 space-y-2 text-xs text-slate-600">
-              <h3 className="text-sm font-bold text-[#14213D] flex items-center gap-2">
+              <h3 className="text-sm font-bold text-[#0F172A] flex items-center gap-2">
                 <Clock className="w-4 h-4 text-blue-600 shrink-0" />
                 <span>Response Time &amp; Availability</span>
               </h3>

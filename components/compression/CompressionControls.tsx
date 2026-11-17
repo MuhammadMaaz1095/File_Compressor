@@ -441,6 +441,37 @@ export function CompressionControls({
                 </select>
               </div>
 
+              {/* Target Size (KB) Mode */}
+              <div>
+                <label htmlFor="image-target-size" className="block text-xs font-semibold text-[#0F172A] mb-1">
+                  Target File Size (KB):
+                </label>
+                <div className="flex items-center gap-2">
+                  <input
+                    id="image-target-size"
+                    type="number"
+                    min="1"
+                    placeholder="e.g. 100 (Optional)"
+                    value={settings.image.targetSizeKB || ''}
+                    disabled={disabled}
+                    onChange={(e) =>
+                      onChange({
+                        ...settings,
+                        image: {
+                          ...settings.image,
+                          targetSizeKB: e.target.value ? parseInt(e.target.value, 10) : undefined,
+                        },
+                      })
+                    }
+                    className="w-full text-xs bg-white border border-slate-300/80 rounded-xl px-3 py-1.5 text-slate-800 shadow-2xs focus:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-600"
+                  />
+                  <span className="text-xs font-bold text-slate-500 shrink-0">KB</span>
+                </div>
+                <p className="text-[11px] text-slate-500 mt-1">
+                  Iteratively adjusts quality to approach requested size without severe artifacting (Optimization goal, not a mathematical guarantee).
+                </p>
+              </div>
+
               {/* Resize Options */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
@@ -497,6 +528,64 @@ export function CompressionControls({
               <h4 className="text-xs font-bold text-[#0F172A] uppercase tracking-wider flex items-center gap-1.5">
                 <span>PDF Settings</span>
               </h4>
+
+              {/* PDF Compression Mode */}
+              <div>
+                <label htmlFor="pdf-mode" className="block text-xs font-semibold text-[#0F172A] mb-1.5">
+                  Compression Pipeline:
+                </label>
+                <select
+                  id="pdf-mode"
+                  value={settings.pdf.mode || 'balanced'}
+                  disabled={disabled}
+                  onChange={(e) =>
+                    onChange({
+                      ...settings,
+                      pdf: {
+                        ...settings.pdf,
+                        mode: e.target.value as 'basic' | 'balanced' | 'strong' | 'target-size',
+                      },
+                    })
+                  }
+                  className="w-full text-xs bg-white border border-slate-300/80 rounded-xl px-3 py-2 text-slate-800 shadow-2xs focus:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-600"
+                >
+                  <option value="balanced">Balanced (Stream optimization + Embedded image recompression)</option>
+                  <option value="basic">Basic (Lossless stream packing &amp; metadata strip only)</option>
+                  <option value="strong">High Compression (Strong image recompression &amp; downsampling)</option>
+                  <option value="target-size">Target Size Mode (Iterative reduction to target KB)</option>
+                </select>
+              </div>
+
+              {/* Target Size (KB) for PDF */}
+              <div>
+                <label htmlFor="pdf-target-size" className="block text-xs font-semibold text-[#0F172A] mb-1">
+                  Target PDF Size (KB):
+                </label>
+                <div className="flex items-center gap-2">
+                  <input
+                    id="pdf-target-size"
+                    type="number"
+                    min="1"
+                    placeholder="e.g. 500 (Optional)"
+                    value={settings.pdf.targetSizeKB || ''}
+                    disabled={disabled}
+                    onChange={(e) =>
+                      onChange({
+                        ...settings,
+                        pdf: {
+                          ...settings.pdf,
+                          targetSizeKB: e.target.value ? parseInt(e.target.value, 10) : undefined,
+                        },
+                      })
+                    }
+                    className="w-full text-xs bg-white border border-slate-300/80 rounded-xl px-3 py-1.5 text-slate-800 shadow-2xs focus:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-600"
+                  />
+                  <span className="text-xs font-bold text-slate-500 shrink-0">KB</span>
+                </div>
+                <p className="text-[11px] text-slate-500 mt-1">
+                  Optimizes embedded images and streams to approach requested size without altering searchable vector text.
+                </p>
+              </div>
 
               <label className="flex items-start gap-2.5 cursor-pointer text-xs text-[#0F172A]">
                 <input

@@ -15,7 +15,7 @@ import {
   FileCode,
   Info,
 } from 'lucide-react';
-import { compressSvg, SvgSettings, SvgPreset } from '@/lib/compression/svgCompressor';
+import type { SvgSettings, SvgPreset } from '@/lib/compression/svgCompressor';
 import { formatBytes, formatReduction } from '@/lib/utils/formatters';
 import { compareFileSizes } from '@/lib/compression/file-size';
 import { CompressionOutcome } from '@/lib/compression/types';
@@ -98,6 +98,7 @@ export function SvgWorkspace() {
     );
 
     try {
+      const { compressSvg } = await import('@/lib/compression/svgCompressor');
       const result = await compressSvg(item.file, settings, (progress) => {
         setItems((prev) =>
           prev.map((it) => (it.id === item.id ? { ...it, progress } : it))
@@ -173,6 +174,8 @@ export function SvgWorkspace() {
     <div className="space-y-8">
       {/* Upload Dropzone */}
       <div
+        role="region"
+        aria-label="SVG File Upload Area"
         className={`relative rounded-3xl border-2 border-dashed p-8 sm:p-12 text-center transition-all ${
           isDragging
             ? 'border-blue-500 bg-blue-50/50 scale-[1.01]'
@@ -191,9 +194,11 @@ export function SvgWorkspace() {
       >
         <input
           ref={fileInputRef}
+          id="svg-file-upload"
           type="file"
           accept="image/svg+xml,.svg"
           multiple
+          aria-label="Upload SVG files"
           className="hidden"
           onChange={(e) => {
             if (e.target.files) handleAddFiles(e.target.files);
@@ -205,17 +210,17 @@ export function SvgWorkspace() {
           <FileCode className="w-7 h-7" />
         </div>
 
-        <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 tracking-tight">
+        <h2 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 tracking-tight">
           Drop SVG files here or browse your device
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto mb-6">
+        </h2>
+        <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mb-6">
           Strip redundant XML attributes, comments, and empty tags while strictly preserving viewBox, gradients, and vector crispness. 100% in-browser processing.
         </p>
 
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all"
+          className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
         >
           Select SVG Files
         </button>
@@ -225,18 +230,19 @@ export function SvgWorkspace() {
       <div className="glass-panel-elevated p-6 rounded-2xl space-y-6">
         <div className="flex items-center gap-2 border-b border-slate-200/70 pb-3">
           <Sliders className="w-4 h-4 text-amber-600" />
-          <h2 className="text-sm font-bold text-slate-900 tracking-tight">
+          <h3 className="text-sm font-bold text-slate-900 tracking-tight">
             SVG Optimization Settings
-          </h2>
+          </h3>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {/* Optimization Preset */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1.5">
+            <label htmlFor="svg-opt-preset" className="block text-xs font-bold text-slate-700 mb-1.5">
               Optimization Level
             </label>
             <select
+              id="svg-opt-preset"
               value={settings.preset}
               onChange={(e) => {
                 const preset = e.target.value as SvgPreset;
@@ -252,7 +258,7 @@ export function SvgWorkspace() {
               <option value="aggressive">Aggressive (Shrinks path coordinates to 2 decimals)</option>
               <option value="lossless">Lossless (Comments &amp; metadata only, 100% exact)</option>
             </select>
-            <span className="text-[11px] text-slate-500 mt-1 block">
+            <span className="text-[11px] text-slate-600 mt-1 block">
               {settings.preset === 'balanced'
                 ? 'Safe for web icons, logos, and illustrations with gradient fills.'
                 : settings.preset === 'aggressive'
@@ -263,10 +269,11 @@ export function SvgWorkspace() {
 
           {/* Coordinate Precision */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1.5">
+            <label htmlFor="svg-coord-precision" className="block text-xs font-bold text-slate-700 mb-1.5">
               Coordinate Float Precision
             </label>
             <select
+              id="svg-coord-precision"
               disabled={settings.preset === 'lossless'}
               value={settings.floatPrecision}
               onChange={(e) =>
@@ -284,7 +291,7 @@ export function SvgWorkspace() {
               <option value={3}>3 Decimals (Sub-pixel high accuracy)</option>
               <option value={4}>4 Decimals (Maximum curve fidelity)</option>
             </select>
-            <span className="text-[11px] text-slate-500 mt-1 block">
+            <span className="text-[11px] text-slate-600 mt-1 block">
               Lower precision drops superfluous decimal digits from curves.
             </span>
           </div>
@@ -422,7 +429,8 @@ export function SvgWorkspace() {
                         type="button"
                         onClick={() => handleProcessItem(item)}
                         disabled={isAnyProcessing}
-                        className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-xs"
+                        aria-label={`Optimize ${item.name}`}
+                        className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-xs focus-visible:ring-2 focus-visible:ring-blue-600"
                       >
                         Optimize
                       </button>
@@ -433,7 +441,8 @@ export function SvgWorkspace() {
                         <a
                           href={item.compressedPreviewUrl || '#'}
                           download={`optimized-${item.name}`}
-                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs"
+                          aria-label={`Download optimized ${item.name}`}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs focus-visible:ring-2 focus-visible:ring-emerald-600"
                         >
                           <Download className="w-3.5 h-3.5" />
                           <span>Download</span>
@@ -444,9 +453,11 @@ export function SvgWorkspace() {
                       type="button"
                       onClick={() => handleRemoveItem(item.id)}
                       disabled={item.status === 'processing'}
-                      className="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100"
+                      aria-label={`Remove ${item.name}`}
+                      title={`Remove ${item.name}`}
+                      className="p-2 text-slate-500 hover:text-rose-600 rounded-lg hover:bg-slate-100 transition-colors focus-visible:ring-2 focus-visible:ring-rose-500"
                     >
-                      &times;
+                      <Trash2 className="w-4 h-4" />
                     </button>
                   </div>
                 </div>

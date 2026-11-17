@@ -8,17 +8,17 @@ import { JsonLd, getSoftwareAppSchema, getFaqSchema } from '@/components/seo/Jso
 import { Sparkles, ShieldCheck, Zap, Image as ImageIcon } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free WebP Compressor Online – Reduce WebP Size | FileCompress',
+  title: 'Free WebP Compressor Online – Reduce WebP Size',
   description:
     'Compress WebP images online with FileCompress. Reduce WebP file size, optimise supported images, and download the processed result.',
   alternates: {
-    canonical: 'https://filecompress.app/webp-compressor',
+    canonical: '/webp-compressor',
   },
   openGraph: {
     title: 'Free WebP Compressor Online – Reduce WebP Size | FileCompress',
     description:
       'Compress WebP images online with FileCompress. Reduce WebP file size, optimise supported images, and download the processed result.',
-    url: 'https://filecompress.app/webp-compressor',
+    url: '/webp-compressor',
     type: 'website',
   },
 };

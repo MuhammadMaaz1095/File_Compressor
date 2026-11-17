@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  compress: true,
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+    cpus: 1,
+  },
   turbopack: {
     rules: {
       "*.css": {

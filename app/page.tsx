@@ -30,22 +30,31 @@ import {
 } from 'lucide-react';
 import { ToolWorkspace } from '@/components/compression/ToolWorkspace';
 import { AdSlot } from '@/components/ads/AdSlot';
-import { JsonLd, getSoftwareAppSchema, getFaqSchema } from '@/components/seo/JsonLd';
+import {
+  JsonLd,
+  getSoftwareAppSchema,
+  getFaqSchema,
+  getWebSiteSchema,
+  getOrganizationSchema,
+} from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'File Compressor – Compress Files Online | FileCompress',
+  title: {
+    absolute: 'Free Online File Compressor – Reduce File Size | FileCompress',
+  },
   description:
-    'Looking for a file compressor? Explore FileCompress tools for image, PDF, video, audio and ZIP compression to help reduce file size online.',
+    'Compress supported files online with FileCompress. Reduce file size using format-specific tools, then check your output before downloading.',
   alternates: {
-    canonical: 'https://filecompress.app',
+    canonical: '/',
   },
   keywords: [
     'file compressor',
     'online file compressor',
-    'compress files online',
     'free file compressor',
-    'file size reducer',
+    'compress files online',
     'reduce file size',
+    'file size reducer',
+    'online file compression tools',
     'compress file',
     'make files smaller',
     'file compression tool',
@@ -56,10 +65,10 @@ export const metadata: Metadata = {
     'zip compressor',
   ],
   openGraph: {
-    title: 'File Compressor – Compress Files Online for Free | FileCompress',
+    title: 'Free Online File Compressor – Reduce File Size | FileCompress',
     description:
-      'Explore FileCompress tools for image, PDF, video, audio, and ZIP compression. Reduce file sizes directly in your browser with 100% on-device privacy.',
-    url: 'https://filecompress.app',
+      'Compress supported files online with FileCompress. Reduce file size using format-specific tools, then check your output before downloading.',
+    url: '/',
     siteName: 'FileCompress',
     type: 'website',
   },
@@ -141,6 +150,8 @@ const HOMEPAGE_FAQS = [
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={getWebSiteSchema()} />
+      <JsonLd data={getOrganizationSchema()} />
       <JsonLd data={getSoftwareAppSchema()} />
       <JsonLd data={getFaqSchema(HOMEPAGE_FAQS)} />
 
@@ -158,18 +169,15 @@ export default function HomePage() {
               <div className="lg:col-span-5 text-left space-y-6 pt-2">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-blue-200/80 text-blue-700 text-xs font-bold shadow-2xs">
                   <Sparkles className="w-4 h-4 text-blue-600" />
-                  <span>Fast, Private &amp; On-Device File Compressor</span>
+                  <span>Online File Compression Tools</span>
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15]">
-                  File Compressor – <br />
-                  <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 bg-clip-text text-transparent">
-                    Compress Files Online for Free
-                  </span>
+                  Compress Files Online for Free
                 </h1>
 
                 <p className="text-base text-slate-600 leading-relaxed font-medium">
-                  Files are part of almost everything we do online. From sharing photos and sending PDF documents to uploading videos, audio recordings, and large attachments, digital files make communication easier. FileCompress helps you explore file compression tools designed to make supported files smaller, easier to manage, and faster to share.
+                  Reduce the size of supported files with easy-to-use online compression tools. Choose a file format, use the appropriate compressor, and compare the output before downloading.
                 </p>
 
                 {/* Trust & Capability Badges */}
@@ -205,7 +213,7 @@ export default function HomePage() {
               </div>
 
               {/* Right Column: Interactive Elevated Compression Workspace */}
-              <div className="lg:col-span-7 w-full">
+              <div id="upload-area" className="lg:col-span-7 w-full scroll-mt-24">
                 <div className="relative">
                   <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-400/20 via-sky-300/25 to-blue-500/20 rounded-[2rem] blur-xl opacity-70 pointer-events-none" />
                   <div className="relative glass-panel-elevated rounded-3xl p-3 sm:p-5 shadow-2xl border border-white/90">
@@ -232,7 +240,7 @@ export default function HomePage() {
                 Specialized Engines
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mt-1">
-                Dedicated Compression Tools
+                Browse File Compression Tools
               </h2>
               <p className="mt-2 text-sm text-slate-600">
                 Explore tailored optimization engines engineered specifically for your media formats.
@@ -350,6 +358,73 @@ export default function HomePage() {
                 </div>
               </Link>
             </div>
+
+            {/* Specialized Formats Quick Access */}
+            <div className="mt-8 pt-6 border-t border-slate-200/70 flex flex-wrap items-center justify-center gap-2">
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1">
+                Direct Format Tools:
+              </span>
+              <Link
+                href="/svg-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                SVG
+              </Link>
+              <Link
+                href="/webp-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                WebP
+              </Link>
+              <Link
+                href="/png-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                PNG
+              </Link>
+              <Link
+                href="/tiff-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                TIFF
+              </Link>
+              <Link
+                href="/gif-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                GIF
+              </Link>
+              <Link
+                href="/mp4-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                MP4
+              </Link>
+              <Link
+                href="/mov-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                MOV
+              </Link>
+              <Link
+                href="/word-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                Word (DOCX)
+              </Link>
+              <Link
+                href="/excel-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                Excel (XLSX)
+              </Link>
+              <Link
+                href="/powerpoint-compressor"
+                className="px-3 py-1.5 rounded-xl bg-white/90 border border-slate-200/80 text-xs font-semibold text-slate-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all shadow-2xs"
+              >
+                PowerPoint (PPTX)
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -392,7 +467,6 @@ export default function HomePage() {
                       width={716}
                       height={1460}
                       className="w-full h-auto object-contain rounded-lg shadow-2xs"
-                      priority
                     />
                   </div>
                 </div>

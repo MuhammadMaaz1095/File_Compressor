@@ -5,17 +5,17 @@ import { Scale, Clock, ShieldCheck, AlertCircle, FileText, CheckCircle2, HelpCir
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | FileCompress',
+  title: 'Terms of Service – User Rights & Fair Use',
   description:
     'Read the FileCompress Terms of Service covering access to our website, acceptable use of online file compression tools, service limitations, and user responsibilities.',
   alternates: {
-    canonical: 'https://filecompress.app/terms',
+    canonical: '/terms',
   },
   openGraph: {
-    title: 'Terms of Service | FileCompress',
+    title: 'Terms of Service – User Rights & Fair Use | FileCompress',
     description:
       'Read the FileCompress Terms of Service covering access to our website, acceptable use of online file compression tools, service limitations, and user responsibilities.',
-    url: 'https://filecompress.app/terms',
+    url: '/terms',
   },
 };
 
@@ -37,7 +37,7 @@ export default function TermsPage() {
             <span>Acceptable Use &amp; Service Terms</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#14213D] tracking-tight leading-[1.15] mb-4">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] mb-4">
             Terms of Service
           </h1>
 
@@ -52,7 +52,7 @@ export default function TermsPage() {
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-slate-700 text-xs sm:text-sm leading-relaxed space-y-12">
         {/* 1. Acceptance of Terms */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             1. Acceptance of Terms
           </h2>
           <p>
@@ -65,7 +65,7 @@ export default function TermsPage() {
 
         {/* 2. Description of the Service */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             2. Description of the Service
           </h2>
           <p>
@@ -98,7 +98,7 @@ export default function TermsPage() {
 
         {/* 3. Permitted Use & Conduct */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             3. Permitted Use &amp; Code of Conduct
           </h2>
           <p>
@@ -115,7 +115,7 @@ export default function TermsPage() {
 
         {/* 4. User Responsibility & Backups */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             4. User Responsibility &amp; Mandatory Backups
           </h2>
           <p>
@@ -128,7 +128,7 @@ export default function TermsPage() {
 
         {/* 5. Compression Results & Quality Disclaimers */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             5. Compression Results, Quality &amp; Fidelity
           </h2>
           <p>
@@ -149,7 +149,7 @@ export default function TermsPage() {
 
         {/* 6. Technical Limitations & Availability */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             6. Technical Limitations &amp; Service Availability
           </h2>
           <p>
@@ -164,7 +164,7 @@ export default function TermsPage() {
 
         {/* 7. Intellectual Property */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             7. Intellectual Property &amp; File Ownership
           </h2>
           <p>
@@ -177,7 +177,7 @@ export default function TermsPage() {
 
         {/* 8. Third-Party Services & Dependencies */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             8. Third-Party Libraries &amp; External Links
           </h2>
           <p>
@@ -187,7 +187,7 @@ export default function TermsPage() {
 
         {/* 9. Disclaimer of Warranties */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             9. Disclaimer of Warranties
           </h2>
           <p className="uppercase text-[11px] text-slate-600 font-semibold tracking-wider">
@@ -200,7 +200,7 @@ export default function TermsPage() {
 
         {/* 10. Limitation of Liability */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             10. Limitation of Liability
           </h2>
           <p className="text-slate-600 leading-relaxed">
@@ -213,7 +213,7 @@ export default function TermsPage() {
 
         {/* 11. Suspension or Termination */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             11. Suspension &amp; Abuse Prevention
           </h2>
           <p>
@@ -223,7 +223,7 @@ export default function TermsPage() {
 
         {/* 12. Updates to the Terms */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             12. Modifications to these Terms
           </h2>
           <p>
@@ -233,7 +233,7 @@ export default function TermsPage() {
 
         {/* 13. Governing Law Notice */}
         <section className="space-y-3">
-          <h2 className="text-lg sm:text-xl font-bold text-[#14213D]">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0F172A]">
             13. Governing Law &amp; Dispute Resolution
           </h2>
           <p>
@@ -243,7 +243,7 @@ export default function TermsPage() {
 
         {/* 14. Contact Information */}
         <section className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-          <h2 className="text-base sm:text-lg font-bold text-[#14213D]">
+          <h2 className="text-base sm:text-lg font-bold text-[#0F172A]">
             14. Contact &amp; Legal Notices
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">

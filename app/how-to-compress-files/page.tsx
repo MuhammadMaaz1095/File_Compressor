@@ -21,17 +21,17 @@ import { AdSlot } from '@/components/ads/AdSlot';
 import { JsonLd, getHowToSchema, getFaqSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'How to Compress Files: Images, PDFs, Videos & Audio | FileCompress',
+  title: 'How to Compress Files: Images, PDFs, Videos & Audio',
   description:
     'Learn how to compress images, PDFs, videos and audio files, reduce file sizes, choose the right settings and share files more easily with FileCompress.',
   alternates: {
-    canonical: 'https://filecompress.app/how-to-compress-files',
+    canonical: '/how-to-compress-files',
   },
   openGraph: {
     title: 'How to Compress Files: Images, PDFs, Videos & Audio | FileCompress',
     description:
       'Learn how to compress images, PDFs, videos and audio files, reduce file sizes, choose the right settings and share files more easily with FileCompress.',
-    url: 'https://filecompress.app/how-to-compress-files',
+    url: '/how-to-compress-files',
   },
 };
 

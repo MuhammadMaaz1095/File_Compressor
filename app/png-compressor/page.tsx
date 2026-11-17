@@ -19,17 +19,17 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Free PNG Compressor Online – Reduce PNG Size | FileCompress',
+  title: 'Free PNG Compressor Online – Reduce PNG Size',
   description:
     'Compress PNG images online for free. Reduce PNG file size, optimise transparent images, and download smaller PNG files with FileCompress.',
   alternates: {
-    canonical: 'https://filecompress.app/png-compressor',
+    canonical: '/png-compressor',
   },
   openGraph: {
     title: 'Free PNG Compressor Online – Reduce PNG Size | FileCompress',
     description:
       'Compress PNG images online for free. Reduce PNG file size, optimise transparent images, and download smaller PNG files with FileCompress.',
-    url: 'https://filecompress.app/png-compressor',
+    url: '/png-compressor',
     type: 'website',
   },
 };
